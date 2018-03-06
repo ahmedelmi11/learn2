@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
- resources :tickets, only: [:new, :create, :edit, :show, :index]
+
+  resources :tickets, only: [:create, :index, :show, :edit]
 end

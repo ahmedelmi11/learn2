@@ -1,8 +1,14 @@
 class TicketsController < ApplicationController
-  before_action :find_ticket, only: [:update, :edit]
+  before_action :find_ticket, only: [:update, :edit, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  def index
+    @tickets = Ticket.all
+  end
+
+  def show
+  end
 
   def edit
-
   end
 
   def update
@@ -29,12 +35,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
-
-
-
-
-
-
   private
   def find_ticket
     @ticket = Ticket.find(params[:id])
@@ -43,8 +43,6 @@ class TicketsController < ApplicationController
   def tickets_params
     params.require(:ticket).permit(:description, :finished, :title)
   end
-
-
 end
 
 
