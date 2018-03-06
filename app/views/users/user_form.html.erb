@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<p><%= @user.technology %></p>
+<%= simple_form_for([@user, @user_technology,]) do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :user_technology_id, collection: UserTechnology.all %>
+  <%= f.submit %>
+<% end %>
