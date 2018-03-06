@@ -2,9 +2,11 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(tickets_params)
     @ticket.student_id = current_user.id
+
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
+      raise
       render :new
     end
   end
