@@ -5,7 +5,7 @@
 <li> Created By <%= ticket.student.first_name %> </li>
 <li> <%= ticket.title %> </li>
 <li> <%= ticket.description %> </li>
-<li> Ticket Technology <!-- ticket.technology -->
-</li>
+<li> <%= ticket.technologies.first&.name %> </li>
+<%= link_to "show",ticket_path(ticket)  %>
 </ul>
 <%  end %>

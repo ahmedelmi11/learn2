@@ -1,6 +1,6 @@
 <h1><%= @ticket.title %></h1>
 <p><%= @ticket.description %></p>
-<%= simple_form_for([@ticket, @ticket_technology ]) do |f| %>
-  <%= f.input :technology_id, collection: Technology.all %>
-  <%= f.submit %>
+
+<% @ticket.technologies.each do |tech| %>
+  <p><%= tech.name %></p>
 <% end %>
