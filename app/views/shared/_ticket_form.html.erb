@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Create a ticket</h1>
+      <%= simple_form_for(@ticket) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.submit "Create ticket"  %>
+      <% end %>
+    </div>
+  </div>
+</div>

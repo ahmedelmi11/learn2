@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :find_ticket, only: [:update, :edit, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @tickets = Ticket.all
   end
@@ -7,4 +8,41 @@ class TicketsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      flash[:notice] = "Ticket was succesfully updated"
+      redirect_to_ticket_path(@ticket)
+    else
+      render 'edit'
+    end
+  end
+
+  def create
+    @ticket = Ticket.new(tickets_params)
+    @ticket.student_id = current_user.id
+
+    if @ticket.save
+      redirect_to ticket_path(@ticket)
+    else
+      render :new
+    end
+  end
+
+  def new
+    @ticket = Ticket.new
+  end
+
+  private
+  def find_ticket
+    @ticket = Ticket.find(params[:id])
+  end
+
+  def tickets_params
+    params.require(:ticket).permit(:description, :finished, :title)
+  end
 end
+
+
