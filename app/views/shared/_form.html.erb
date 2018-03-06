@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.simple_fields_for :ticket_technologies do |p| %>
-    <%= p.input :technology_id, collection: Technology.all %>
+    <%= p.input :technology_id, as: :check_boxes, collection: Technology.all %>
   <% end %>
   <%= f.submit %>
 <% end %>

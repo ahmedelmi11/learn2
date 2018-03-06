@@ -3,7 +3,7 @@
 
 <div class="row">
 <% @tickets.each do |ticket| %>
-  
+
   <div class="col-xs-3">
     <div class="card">
       <div class="card-info">
@@ -13,9 +13,9 @@
       <div class="card-technology">
         <span>Ruby</span>
       </div>
-      <%= link_to "",ticket_path(ticket), class: "card-link"  %>
+      <%= link_to "show",ticket_path(ticket), class: "card-link"  %>
     </div>
   </div>
-  
+
 <%  end %>
 </div>
