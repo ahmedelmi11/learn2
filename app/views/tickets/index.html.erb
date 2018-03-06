@@ -2,7 +2,7 @@
 
 <% @tickets.each do |ticket| %>
 <ul>
-<li> Created By <%= ticket.student.name %> </li>
+<li> Created By <%= ticket.student.first_name %> </li>
 <li> <%= ticket.title %> </li>
 <li> <%= ticket.description %> </li>
 <li> Ticket Technology <!-- ticket.technology -->
