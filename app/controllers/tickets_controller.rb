@@ -29,6 +29,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(tickets_params)
     @ticket.student_id = current_user.id
     if @ticket.save
+      ticket_technology = TicketTechnology.new(technology_id: params[:ticket][:ticket_technologies][:technology_id],  ticket_id: @ticket.id)
+      ticket_technology.save
       flash[:notice] = "Ticket was succesfully created"
       redirect_to ticket_path(@ticket)
     else

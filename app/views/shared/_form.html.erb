@@ -1,5 +1,8 @@
 <%= simple_form_for(@ticket) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.simple_fields_for :ticket_technologies do |p| %>
+    <%= p.input :technology_id, collection: Technology.all %>
+  <% end %>
   <%= f.submit %>
 <% end %>
