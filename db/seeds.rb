@@ -10,9 +10,9 @@ student = User.create!(email: "student@gmail.com", password: "password", first_n
 teacher = User.create!(email: "teacher@gmail.com", password: "password", first_name: "David", last_name: "O'Neill" )
 
 # creating technologies
-html = Technology.create!(name: "HTML")
-rails = Technology.create!(name: "Rails")
-ruby = Technology.create!(name: "Ruby")
+html = Technology.create!(name: "HTML", photo:"html.png")
+rails = Technology.create!(name: "Rails", photo:"rails.png")
+ruby = Technology.create!(name: "Ruby", photo:"ruby.png")
 
 # linking user to technologies
 UserTechnology.create!(user: teacher, technology: html)

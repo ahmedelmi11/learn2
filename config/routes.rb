@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :ticket_technologies, only: [ :create ]
   end
 
-  resources :users, only: [:edit, :show, :update]
+  resources :users, only: [:edit, :show, :update] do
+    resources :user_technologies, only: [:new, :create, :destroy]
+  end
 
 end

@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Add technology </h1>
+        <%= simple_form_for(@user_technology, url: user_user_technologies_path(@user)) do |f| %>
+          <%= f.association :technology %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
