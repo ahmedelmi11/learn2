@@ -1,0 +1,12 @@
+<p>All the tickets</p>
+
+<% @tickets.each do |ticket| %>
+<ul>
+<li> Created By <%= ticket.student %> </li>
+<li> <%= ticket.title %> </li>
+<li> <%= ticket.description %> </li>
+<li> <%= ticket.student %></li>
+<li> Ticket Technology <!-- ticket.technology -->
+</li>
+</ul>
+<%  end %>
