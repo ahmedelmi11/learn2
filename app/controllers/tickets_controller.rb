@@ -1,5 +1,12 @@
 class TicketsController < ApplicationController
-  before_action :find_ticket, only: [:update, :edit]
+  before_action :find_ticket, only: [:update, :edit, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  def index
+    @tickets = Ticket.all
+  end
+
+  def show
+  end
 
   def edit
   end
@@ -13,6 +20,10 @@ class TicketsController < ApplicationController
     end
   end
 
+  def new
+    @ticket = Ticket.new
+  end
+
   def create
     @ticket = Ticket.new(tickets_params)
     @ticket.student_id = current_user.id
@@ -23,12 +34,8 @@ class TicketsController < ApplicationController
     end
   end
 
-  def new
-    @ticket = Ticket.new
-  end
-
-
   private
+
   def find_ticket
     @ticket = Ticket.find(params[:id])
   end

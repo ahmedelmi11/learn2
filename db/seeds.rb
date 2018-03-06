@@ -6,8 +6,8 @@ User.destroy_all
 Ticket.destroy_all
 
 # creating users
-student = User.create!(email: "student@gmail.com", password: "password")
-teacher = User.create!(email: "teacher@gmail.com", password: "password")
+student = User.create!(email: "student@gmail.com", password: "password", first_name: "Ahmed", last_name: "Elmi")
+teacher = User.create!(email: "teacher@gmail.com", password: "password", first_name: "David", last_name: "O'Neill" )
 
 # creating technologies
 html = Technology.create!(name: "HTML")
