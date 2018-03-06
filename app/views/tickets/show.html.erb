@@ -1,6 +1,16 @@
 <h1><%= @ticket.title %></h1>
+
+<%-# this used to have an option to add a ticket technology but Ahmed has added this to the new page -%>
+
+
 <p><%= @ticket.description %></p>
-<%= simple_form_for([@ticket, @ticket_technology]) do |f| %>
-  <%= f.input :technology_id, collection: Technology.all %>
-  <%= f.submit %>
-<% end %>
+
+
+<%-# this displays an edit option if the user viewing the ticket is the user who created the ticket -%>
+
+
+<%= if User.find_by(id: @ticket.student_id) == current_user then
+link_to "Edit", edit_ticket_path
+end
+%>
+
