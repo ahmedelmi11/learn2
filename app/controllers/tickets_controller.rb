@@ -21,7 +21,6 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
-      raise
       render :new
     end
   end
