@@ -6,28 +6,18 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @ticket_technology = TicketTechnology.new
   end
 
   def edit
   end
 
   def update
-    if @ticket.update(ticket_params)
+    if @ticket.update(tickets_params)
       flash[:notice] = "Ticket was succesfully updated"
-      redirect_to_ticket_path(@ticket)
-    else
-      render 'edit'
-    end
-  end
-
-  def create
-    @ticket = Ticket.new(tickets_params)
-    @ticket.student_id = current_user.id
-
-    if @ticket.save
       redirect_to ticket_path(@ticket)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -35,7 +25,19 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def create
+    @ticket = Ticket.new(tickets_params)
+    @ticket.student_id = current_user.id
+    if @ticket.save
+      flash[:notice] = "Ticket was succesfully created"
+      redirect_to ticket_path(@ticket)
+    else
+      render :new
+    end
+  end
+
   private
+
   def find_ticket
     @ticket = Ticket.find(params[:id])
   end

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :tickets, except: [:destroy] do
+    resources :ticket_technologies, only: [ :create ]
+  end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :tickets, only: [:create, :index, :show, :edit]
 end
