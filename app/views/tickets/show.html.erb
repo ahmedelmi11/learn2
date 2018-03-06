@@ -1,6 +1,18 @@
 <h1><%= @ticket.title %></h1>
+
+<%-# this used to have an option to add a ticket technology but Ahmed has added this to the new page -%>
+
+
 <p><%= @ticket.description %></p>
+
+
+
+<%-# this displays an edit option if the user viewing the ticket is the user who created the ticket -%>
 
 <% @ticket.technologies.each do |tech| %>
   <p><%= tech.name %></p>
+<% end %>
+
+<% if @ticket.student == current_user %>
+  <%= link_to "Edit", edit_ticket_path %>
 <% end %>
