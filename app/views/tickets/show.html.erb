@@ -6,11 +6,13 @@
 <p><%= @ticket.description %></p>
 
 
+
 <%-# this displays an edit option if the user viewing the ticket is the user who created the ticket -%>
 
+<% @ticket.technologies.each do |tech| %>
+  <p><%= tech.name %></p>
+<% end %>
 
-<%= if User.find_by(id: @ticket.student_id) == current_user then
-link_to "Edit", edit_ticket_path
-end
-%>
-
+<% if @ticket.student == current_user %>
+  <%= link_to "Edit", edit_ticket_path %>
+<% end %>
