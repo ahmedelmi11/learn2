@@ -1,5 +1,6 @@
 <h1><%= @ticket.title %></h1>
 <p><%= @ticket.description %></p>
+
 <% @ticket.technologies.each do |tech| %>
-<p><%= tech.name %></p>
+  <p><%= tech.name %></p>
 <% end %>

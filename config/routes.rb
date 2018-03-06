@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :tickets, except: [:destroy] do
     resources :ticket_technologies, only: [ :create ]
   end
-  resources :ticket_technologies, only:[ :create ]
+
+  resources :users, only: [:edit, :show, :update]
 end
