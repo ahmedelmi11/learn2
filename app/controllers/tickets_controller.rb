@@ -14,6 +14,8 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update(tickets_params)
+      TicketTechnology.where(ticket_id: @ticket.id).destroy_all
+      create_ticket_technologies(@ticket)
       flash[:notice] = "Ticket was succesfully updated"
       redirect_to ticket_path(@ticket)
     else
@@ -29,6 +31,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(tickets_params)
     @ticket.student_id = current_user.id
     if @ticket.save
+      create_ticket_technologies(@ticket)
       flash[:notice] = "Ticket was succesfully created"
       redirect_to ticket_path(@ticket)
     else
@@ -37,6 +40,13 @@ class TicketsController < ApplicationController
   end
 
   private
+
+  def create_ticket_technologies(ticket)
+    params[:ticket][:ticket_technologies][:technology_id].each do |tech_id|
+      ticket_technology = TicketTechnology.new(technology_id: tech_id,  ticket_id: ticket.id)
+      ticket_technology.save
+    end
+  end
 
   def find_ticket
     @ticket = Ticket.find(params[:id])

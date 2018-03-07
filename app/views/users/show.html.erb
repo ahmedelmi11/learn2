@@ -10,7 +10,7 @@
    <% @user.technologies.each do |tech| %>
       <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
    <% end %>
-   <%= link_to "Add new speciality", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+   <%= link_to "Add new speciality", new_user_technology_path(@user), class: "btn btn-primary"%>
 <% else %>
-  <%= link_to "Become a teacher", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+  <%= link_to "Become a teacher", new_user_technology_path(@user), class: "btn btn-primary"%>
 <% end %>

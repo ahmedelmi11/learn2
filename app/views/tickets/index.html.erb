@@ -1,11 +1,21 @@
-<p>All the tickets</p>
+<h1>All the tickets</h1>
 
+
+<div class="row">
 <% @tickets.each do |ticket| %>
-  <ul>
-  <li> Created By <%= ticket.student.first_name %> </li>
-  <li> <%= ticket.title %> </li>
-  <li> <%= ticket.description %> </li>
-  <li> Ticket Technology <!-- ticket.technology -->
-  </li>
-  </ul>
+
+  <div class="col-xs-3">
+    <div class="card">
+      <div class="card-info">
+        <h3><%= ticket.title %></h3>
+        <p><%= ticket.description %></p>
+      </div>
+      <div class="card-technology">
+        <span>Ruby</span>
+      </div>
+      <%= link_to "show",ticket_path(ticket), class: "card-link"  %>
+    </div>
+  </div>
+
 <%  end %>
+</div>

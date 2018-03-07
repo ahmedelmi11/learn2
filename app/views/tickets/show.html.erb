@@ -1,10 +1,4 @@
-<!-- <h1><%= @ticket.title %></h1>
-<p><%= @ticket.description %></p>
-<%= simple_form_for([@ticket, @ticket_technology ]) do |f| %>
-  <%= f.input :technology_id, collection: Technology.all %>
-  <%= f.submit %>
-<% end %>
- -->
+
 
 <div class="container">
   <div class="row">
@@ -12,7 +6,7 @@
       <h2><%= @ticket.title %></h2>
       <p><%= @ticket.description %></p>
         <%= simple_form_for([@ticket, @ticket_technology ]) do |f| %>
-       <%= f.input :technology_id, collection: Technology.all %>
+          <%= f.input :technology_id, collection: Technology.all %>
         <%= f.submit %>
       <% end %>
     </div>
