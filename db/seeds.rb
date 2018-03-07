@@ -21,6 +21,7 @@ javascript = Technology.create!(name: "Javascript")
 java = Technology.create!(name: "Java")
 php = Technology.create!(name: "PHP")
 
+
 puts "Linking users to technologies"
 # linking user to technologies
 UserTechnology.create!(user: teacher, technology: html)

@@ -9,6 +9,18 @@ class TicketsController < ApplicationController
     @ticket_technology = TicketTechnology.new
   end
 
+  def accept_ticket
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket.teacher_id = current_user.id
+    if @ticket.save
+      flash[:notice] = "Ticket taken"
+      redirect_to ticket_path(@ticket)
+    else
+      flash[:alert] = "Ticket not taken"
+      redirect_to ticket_path(@ticket)
+    end
+  end
+
   def edit
   end
 

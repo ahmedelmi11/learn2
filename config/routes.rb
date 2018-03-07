@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   resources :tickets, except: [:destroy] do
     resources :ticket_technologies, only: [ :create ]
+    get 'accept_ticket', to: "tickets#accept_ticket", as: :accept_ticket
   end
 
-  resources :users, only: [:edit, :show, :update]
+  resources :users, only: [:edit, :show, :update] do
+  end
+  resources :user_technologies, only: [:new, :create, :destroy]
+
 end

@@ -5,4 +5,12 @@ class Ticket < ApplicationRecord
   belongs_to :teacher, :class_name => "User", :foreign_key => :teacher_id, optional: true
   has_many :ticket_technologies
   has_many :technologies, through: :ticket_technologies
+
+  def available?
+    self.teacher_id.nil?
+  end
+
+  def taken?
+    !available?
+  end
 end

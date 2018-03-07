@@ -1,13 +1,11 @@
 <h1><%= @ticket.title %></h1>
 
-<%-# this used to have an option to add a ticket technology but Ahmed has added this to the new page -%>
+<!-- # this used to have an option to add a ticket technology but Ahmed has added this to the new page  -->
 
 
 <p><%= @ticket.description %></p>
 
-
-
-<%-# this displays an edit option if the user viewing the ticket is the user who created the ticket -%>
+<!-- # this displays an edit option if the user viewing the ticket is the user who created the  -->
 
 <% @ticket.technologies.each do |tech| %>
   <p><%= tech.name %></p>
@@ -15,4 +13,8 @@
 
 <% if @ticket.student == current_user %>
   <%= link_to "Edit", edit_ticket_path %>
+<% end %>
+
+<% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
+  <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary"  %>
 <% end %>

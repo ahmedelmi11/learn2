@@ -2,7 +2,31 @@
 <h1><%= @user.email %></h1>
 <h1><%= @user.first_name %></h1>
 <h1><%= @user.last_name %></h1>
-<%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
-<%= link_to "Become a teacher",edit_user_path(@user), class: "btn btn-primary"%>
+<p>
+  <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
+</p>
+
+<% if @user.technologies.any? %>
+   <% @user.technologies.each do |tech| %>
+      <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
+   <% end %>
+   <%= link_to "Add new speciality", new_user_technology_path(@user), class: "btn btn-primary"%>
+<% else %>
+  <%= link_to "Become a teacher", new_user_technology_path(@user), class: "btn btn-primary"%>
+<% end %>
 
 
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Tickets I need to answer</h2>
+    <% @user.tickets_as_teacher.each do |ticket| %>
+      <%= ticket.title %>
+    <% end %>
+  </div>
+  <div class="col-xs-12">
+    <h2>Tickets I made</h2>
+    <% @user.tickets_as_student.each do |ticket| %>
+      <%= ticket.title %>
+    <% end %>
+  </div>
+</div>
