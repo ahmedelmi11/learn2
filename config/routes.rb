@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :tickets, except: [:destroy] do
     resources :ticket_technologies, only: [ :create ]
     get 'accept_ticket', to: "tickets#accept_ticket", as: :accept_ticket
+    resources :comments, only: [:create]
   end
 
   resources :users, only: [:edit, :show, :update] do
