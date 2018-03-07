@@ -2,46 +2,15 @@
 <h1><%= @user.email %></h1>
 <h1><%= @user.first_name %></h1>
 <h1><%= @user.last_name %></h1>
-<%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
-<%= link_to "Become a teacher", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+<p>
+  <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
+</p>
 
-
-
-
-
-
-
-<ol
-<%= user.technologies.each do|technology| %>
-<li>
-  <%= technology.icon %>
-  <%= link_to 'Add a technolgy to profile',  %>
-</li>
-
-</ol>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h1>Edit profile</h1>
-        <%= simple_form_for(@user) do |f| %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :email %>
-          <%= f.submit %>
-        <% end %>
-    </div>
-  </div>
-</div>
+<% if @user.technologies.any? %>
+   <% @user.technologies.each do |tech| %>
+      <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
+   <% end %>
+   <%= link_to "Add new speciality", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+<% else %>
+  <%= link_to "Become a teacher", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+<% end %>

@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :technologies, through: :user_technologies
   has_many :comments
   has_many :tickets
+
+
+  def teacher?
+    self.technologies.any?
+  end
 end

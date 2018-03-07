@@ -1,11 +1,11 @@
 <p>All the tickets</p>
 
 <% @tickets.each do |ticket| %>
-<ul>
-<li> Created By <%= ticket.student.first_name %> </li>
-<li> <%= ticket.title %> </li>
-<li> <%= ticket.description %> </li>
-<li> Ticket Technology <!-- ticket.technology -->
-</li>
-</ul>
+  <ul>
+  <li> Created By <%= ticket.student.first_name %> </li>
+  <li> <%= ticket.title %> </li>
+  <li> <%= ticket.description %> </li>
+  <li> Ticket Technology <!-- ticket.technology -->
+  </li>
+  </ul>
 <%  end %>
