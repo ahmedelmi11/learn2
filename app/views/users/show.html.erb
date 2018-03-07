@@ -14,3 +14,19 @@
 <% else %>
   <%= link_to "Become a teacher", new_user_technology_path(@user), class: "btn btn-primary"%>
 <% end %>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Tickets I need to answer</h2>
+    <% @user.tickets_as_teacher.each do |ticket| %>
+      <%= ticket.title %>
+    <% end %>
+  </div>
+  <div class="col-xs-12">
+    <h2>Tickets I made</h2>
+    <% @user.tickets_as_student.each do |ticket| %>
+      <%= ticket.title %>
+    <% end %>
+  </div>
+</div>
