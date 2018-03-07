@@ -19,11 +19,24 @@
   <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary"  %>
 <% end %>
 
-<%= simple_form_for [@ticket, @comment] do |c| %>
-  <%= c.input :content %>
-  <%= c.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Add comment </h1>
+        <%= simple_form_for [@ticket, @comment] do |c| %>
+      <%= c.input :content %>
+      <%= c.button :submit %>
+    <% end %>
+    </div>
+  </div>
+</div>
 
 <% @comments.each do  |c|  %>
-  <%= c.content %>
+<p><%= c.content %></p>
+
 <% end %>
+
+
+
+
+
