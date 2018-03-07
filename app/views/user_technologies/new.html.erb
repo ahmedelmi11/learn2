@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <h1>Add technology </h1>
-        <%= simple_form_for(@user_technology) do |f| %>
+        <%= simple_form_for([@user, @user_technology]) do |f| %>
           <%= f.association :technology %>
           <%= f.submit %>
         <% end %>

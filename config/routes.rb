@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :show, :update] do
-  end
   resources :user_technologies, only: [:new, :create, :destroy]
+  end
 
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end
