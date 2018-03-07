@@ -18,3 +18,22 @@
 <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
   <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary"  %>
 <% end %>
+
+<% if @ticket.taken? &&  (@ticket.student == current_user || @ticket.teacher == current_user)  %>
+
+  <h1>Add comment </h1>
+  <%= simple_form_for [@ticket, @comment] do |c| %>
+    <%= c.input :content %>
+    <%= c.button :submit %>
+  <% end %>
+
+  <% @comments.each do |c| %>
+    <p><%= c.content %></p>
+    <p><%= c.user.email %></p>
+      <p><%= markdown("sfgdfgdfg") %></p>
+  <% end %>
+<% end %>
+
+
+
+
