@@ -1,0 +1,26 @@
+<div class="dashboard-container">
+  <div class="flex-container">
+    <div class="left">
+      <div class="bookings-cards">
+      <div class="dashboard-card">
+      <h4><u>All Tickets</u></h4>
+      <% @tickets.each do |ticket| %>
+        <div class="ticket-card">
+          <p><%= ticket.title %></p>
+          <p><%= ticket.description %></p>
+          <% student = User.find(ticket.student_id) %>
+          <p><%= student.first_name %> <%= student.last_name %> %></p>
+          <% teacher = User.find(ticket.teacher_id) if ticket.teacher_id %>
+          <% if teacher %>
+            <p><%= teacher.first_name %></p>
+          <% end %>
+          <p><%= ticket.finished %></p>
+          </div>
+          <% end %>
+        </div>
+      <%= link_to "Create a ticket", new_ticket_path, class: "btn-twitter text-center", id: "dashboard-ticket-link" %>
+      </div>
+    </div>
+  </div>
+</div>
+
