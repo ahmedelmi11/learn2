@@ -14,3 +14,7 @@
 <% if @ticket.student == current_user %>
   <%= link_to "Edit", edit_ticket_path %>
 <% end %>
+
+<% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
+  <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary"  %>
+<% end %>
