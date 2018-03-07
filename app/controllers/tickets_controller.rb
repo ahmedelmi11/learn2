@@ -7,6 +7,8 @@ class TicketsController < ApplicationController
 
   def show
     @ticket_technology = TicketTechnology.new
+    @comment = Comment.new
+    @comments = Comment.where(ticket: @ticket)
   end
 
   def accept_ticket
