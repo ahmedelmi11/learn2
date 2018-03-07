@@ -1,16 +1,14 @@
-<h1>Get help with your code</h1>
+<%= content_for(:navbar_class, "navbar-home") %>
 
+<div class="banner">
 
-
-<div>
-
-<p>How this works:</p>
-<p>1. Sign up</p>
-<p>2. Create a ticket by describing what you're stuck with and copy in code</p>
-<p>3. Pay a small fee</p>
-<p>3. Get an expert answer in 30 min</p>
-<p>4. Follow-up for further feedback if you need it. </p>
-<p>5.</p>
+  <div class="banner-content text-center">
+    <h1>Emergency Aid for Tech Projects</h1>
+    <p>Your coding problem solved by a professional within 60 minutes.</p>
+    <%= link_to "Get Help", new_user_session_path, class: "btn btn-lg btn-primary" %>
+  </div>
 
 </div>
+
+<%= content_for(:footer_class, "footer-home") %>
 
