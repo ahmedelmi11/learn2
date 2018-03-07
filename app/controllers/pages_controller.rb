@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @student = User.find(current_user.id)
+    @tickets = Ticket.where(student: current_user)
+  end
 end
