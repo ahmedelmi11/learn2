@@ -28,9 +28,8 @@
   <% end %>
 
   <% @comments.each do |c| %>
-    <p><%= c.content %></p>
     <p><%= c.user.email %></p>
-    <p><%= markdown("sfgdfgdfg") %></p>
+    <%= markdown(c.content) %>
   <% end %>
 <% end %>
 

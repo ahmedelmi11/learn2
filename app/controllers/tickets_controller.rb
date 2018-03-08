@@ -43,6 +43,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
+
     @ticket.student_id = current_user.id
     if @ticket.save
       create_ticket_technologies(@ticket)
