@@ -11,7 +11,8 @@
         <p><%= ticket.description %></p>
       </div>
       <div class="card-technology">
-        <span>Ruby</span>
+        <span><% ticket.technologies.each do |technology| %>
+          <%= technology.name %>  <% end %></span>
       </div>
       <%= link_to "show",ticket_path(ticket), class: "card-link"  %>
     </div>
