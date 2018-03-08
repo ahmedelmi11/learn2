@@ -1,34 +1,55 @@
+<!-- <div class="dashboard-container"> -->
+  <div class="grid-container">
+    <div class="left">
+      <h2><u>My Dashboard</u></h2>
+      <h1 class="dashboard-details"><%= @user.first_name %></h1>
+      <h1 class="dashboard-details"><%= @user.last_name %></h1>
+      <h1 class="dashboard-details"><%= @user.email %></h1>
+      <p>
+        <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
+      </p>
 
-<h1><%= @user.first_name %></h1>
-<h1><%= @user.last_name %></h1>
-<h1><%= @user.email %></h1>
-<p>
-  <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
-</p>
-7
-<% if @user.technologies.any? %>
-   <% @user.technologies.each do |tech| %>
-      <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
-   <% end %>
-   <%= link_to "Add new speciality", new_user_user_technology_path(@user), class: "btn btn-primary"%>
-<% else %>
-  <%= link_to "Become a teacher", new_user_user_technology_path(@user), class: "btn btn-primary"%>
-<% end %>
+      <% if @user.technologies.any? %>
+         <% @user.technologies.each do |tech| %>
+            <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
+         <% end %>
+         <%= link_to "Add new speciality", new_user_user_technology_path(@user), class: "btn btn-primary"%>
+      <% else %>
+        <%= link_to "Become a teacher",new_user_user_technology_path(@user), class: "btn btn-primary"%>
+      <% end %>
+    </div>
+   <div class="right">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Tickets I need to answer</h2>
+        <% @user.tickets_as_teacher.each do |ticket| %>
+           <div class="cards">
+              <div class="ticket-card">
+                  <%= ticket.title %>
+                  <%= ticket.description %>
+              </div>
+           </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12">
+        <h2>Tickets I made</h2>
+          <% @user.tickets_as_student.each do |ticket| %>
+        <div class="cards">
+          <div class="ticket-card">
+            <%= ticket.title %>
+            <%= ticket.description %>
+          </div>
+        </div>
+          <% end %>
 
-
-<div class="row">
-  <div class="col-xs-12">
-    <h2>Tickets I need to answer</h2>
-    <% @user.tickets_as_teacher.each do |ticket| %>
-      <%= ticket.title %>
-    <% end %>
+   </div>
+    </div>
   </div>
-  <div class="col-xs-12">
-    <h2>Tickets I made</h2>
-    <% @user.tickets_as_student.each do |ticket| %>
-      <%= ticket.title %>
-    <% end %>
+
+
   </div>
-</div>
+<!-- </div> -->
+
+
 
 
