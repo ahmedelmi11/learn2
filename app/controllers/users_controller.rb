@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @tickets = Ticket.all
     # @user_controller = UserController.new
   end
 

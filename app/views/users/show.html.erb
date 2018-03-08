@@ -1,11 +1,11 @@
 
-<h1><%= @user.email %></h1>
 <h1><%= @user.first_name %></h1>
 <h1><%= @user.last_name %></h1>
+<h1><%= @user.email %></h1>
 <p>
   <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
 </p>
-
+7
 <% if @user.technologies.any? %>
    <% @user.technologies.each do |tech| %>
       <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
@@ -30,3 +30,5 @@
     <% end %>
   </div>
 </div>
+
+

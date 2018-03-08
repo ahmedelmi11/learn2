@@ -6,6 +6,8 @@ class Ticket < ApplicationRecord
   has_many :ticket_technologies
   has_many :technologies, through: :ticket_technologies
 
+  enum status: { pending: 0, active: 1, finished: 2 }
+
   def available?
     self.teacher_id.nil?
   end

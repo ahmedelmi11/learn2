@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20180307183339) do
+=======
 ActiveRecord::Schema.define(version: 20180307172120) do
+>>>>>>> ed5b277f0a94c2a097b41fd61447b7066d2702fd
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +48,11 @@ ActiveRecord::Schema.define(version: 20180307172120) do
   create_table "tickets", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "finished", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "student_id"
     t.integer "teacher_id"
+    t.integer "status", default: 0
   end
 
   create_table "user_technologies", force: :cascade do |t|
@@ -76,7 +80,10 @@ ActiveRecord::Schema.define(version: 20180307172120) do
     t.string "first_name"
     t.string "last_name"
     t.string "github_username"
+<<<<<<< HEAD
+=======
     t.string "github_avatar_url"
+>>>>>>> ed5b277f0a94c2a097b41fd61447b7066d2702fd
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
