@@ -28,4 +28,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email)
   end
 
+  def get_user_avatar
+    url = "https://api.github.com/users/#{@user.github_username}"
+    user_serialised = open(url).read
+    user = JSON.parse(user_serialised)
+    @user.github_avatar_url = user['']
+  end
+
 end
