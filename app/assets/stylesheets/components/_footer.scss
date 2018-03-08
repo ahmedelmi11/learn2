@@ -2,6 +2,7 @@
   // position: fixed;
   // left: 0;
   // bottom: 0;
+  height: 30px;
   width: 100%;
   background-color: black;
   color: white;
@@ -21,3 +22,10 @@
 
 /* Right section */
 
+.min-height {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100%;
+}
