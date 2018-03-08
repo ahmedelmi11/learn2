@@ -1,8 +1,23 @@
 <%= simple_form_for(@ticket) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.simple_fields_for :ticket_technologies do |p| %>
-    <%= p.input :technology_id, as: :check_boxes, collection: Technology.all %>
-  <% end %>
-  <%= f.submit %>
+
+  <div class="form-group check_boxes required ticket_ticket_technologies_technology_id">
+    <input type="hidden" name="ticket[ticket_technologies][technology_id][]" value="">
+      <div class="technology-choices">
+        <% Technology.all.each do |tech| %>
+          <input class="hidden" type="checkbox" value="<%= tech.id %>" name="ticket[ticket_technologies][technology_id][]" id="ticket_ticket_technologies_technology_id_<%= tech.id %>">
+          <label for="ticket_ticket_technologies_technology_id_<%= tech.id %>" class="technology-choice">
+            <%= tech.name %>
+            <i class="fa fa-check"></i>
+          </label>
+        <% end %>
+      </div>
+    </div>
+
+
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
+
+
+<%= javascript_pack_tag "form_ticket" %>
