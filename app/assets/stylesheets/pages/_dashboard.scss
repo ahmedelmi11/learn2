@@ -21,23 +21,57 @@
   grid-row-end: 2;
 }
 
-.right{
-  color: $gray;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
+.wrapper{
+  font-family: Arial;
+  max-width: 1080px;
+  // margin: 0 auto;
+  padding: 10px;
+  background:#999;
+}
 
+.tab {
+  border-color: transparent;
+  font-size: 20px;
+  background: $white;
+  color: $orange;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tab:hover {
+  opacity: 0.7;
+}
+
+.tabs{
+  display: flex;
+}
+
+.tab_two {
+  background: $orange;
+  color: $gray;
+}
+
+.content {
+  font-size: 20px;
+  background: #666;
+  padding: 5px 20px;
+  color: #fff;
+  display: none;
+}
+
+.content_two {
+  background: $white;
+  color: #444;
 }
 .card .ticket-card {
-  background-color:$light-gray;
+  background-color:$white;
   margin: 20px;
   padding: 10px;
   border-radius: 10px;
   max-width: 300px;
 }
-
-.right .dashboard-card, .left .dashboard-card{
+.left .dashboard-card{
   background-color: #fff;
   margin: 20px;
   padding: 10px;
@@ -45,47 +79,9 @@
   opacity: 0.8;
 }
 
-
-// .car-card, .booking-card {
-//   background-color: #808080;
-//   margin: 20px;
-//   padding: 10px;
-//   border-radius: 10px;
-//   color: black;
-//   max-width: 300px;
-// }
-
-// .btn-twitter {
-//   color: white;
-//   text-align: center;
-//   border: 1px solid #808080;
-//   text-decoration: none;
-//   border-radius: 50px solid #808080;
-//   padding: 10px 50px;
-//   margin: 60px  40px;
-//   font-weight: bolder;
-//   font-size: 20px;
-//   background: #808080;
-//   transition: background 0.3s ease;
-// }
-// .btn-twitter:hover {
-//   background: #?3ac162;
-//   text-decoration: none;
-//   color: white;
-// }
-
-// .car-card-photo {
-//   height: 200px;
-//   width: 100%;
-// }
-
-
-// #dashboard-car-link {
-//   position: relative;
-//   left: 165px;
-// }
-
 .dashboard-details {
   font-size: 1.2em !important;
   display: inline-block !important;
 }
+
+
