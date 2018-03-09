@@ -1,21 +1,48 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :github_username %>
-    <%= f.input :role, collection: ["Student", "Tech Guide"] %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+
+
+<div class="container min-height">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Sign up</h1>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :first_name, required: true %>
+
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :last_name, required: true %>
+
+              </div>
+
+            </div>
+            <%= f.input :role, collection: ["Student", "Tech Guide"] %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :email, required: true, autofocus: true %>
+
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :github_username %>
+
+              </div>
+
+            </div>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
