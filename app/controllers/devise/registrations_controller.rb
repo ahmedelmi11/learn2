@@ -21,6 +21,7 @@ class Devise::RegistrationsController < DeviseController
     build_resource(sign_up_params)
 
     resource.save
+    get_user_avatar
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
@@ -116,7 +117,6 @@ class Devise::RegistrationsController < DeviseController
   # The path used after sign up. You need to overwrite this method
   # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
-    get_user_avatar
     after_sign_in_path_for(resource)
   end
 
@@ -155,15 +155,12 @@ class Devise::RegistrationsController < DeviseController
 
   def get_user_avatar
     url = "https://api.github.com/users/#{@user.github_username}"
-    binding.pry
     user_serialised = open(url).read
-    begin
     user = JSON.parse(user_serialised)
-      @user.github_avatar_url = user['avatar_url']
-      @user.save
-    rescue OpenURI::HTTPError
-    end
-
+    @user.github_avatar_url = user['avatar_url']
+    @user.save
+    rescue
+      @user.github_avatar_url = "http://topmops.net/wp-content/uploads/2017/01/avatar-placeholder-generic.jpg"
   end
 
 end
