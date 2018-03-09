@@ -54,7 +54,9 @@
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
                 <li><%= ticket.status %></li>
-                <li><a href="i"><i class="fa fa-star"></i></a></li>
+                <%= link_to ticket_path(ticket) do  %>
+                  <li><i class="fa fa-star"></i></li>
+                <% end %>
               </ul>
             </div>
 
