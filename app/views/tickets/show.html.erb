@@ -4,7 +4,7 @@
   <!-- # this used to have an option to add a ticket technology but Ahmed has added this to the new page  -->
 
 
-  <p><%= @ticket.description %></p>
+  <p><%= markdown(@ticket.description) %></p>
 
   <!-- # this displays an edit option if the user viewing the ticket is the user who created the  -->
 
