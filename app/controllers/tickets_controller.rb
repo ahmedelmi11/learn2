@@ -16,6 +16,20 @@ class TicketsController < ApplicationController
     @ticket.teacher_id = current_user.id
     if @ticket.save
       flash[:notice] = "Ticket taken"
+      @ticket.active!
+      redirect_to ticket_path(@ticket)
+    else
+      flash[:alert] = "Ticket not taken"
+      redirect_to ticket_path(@ticket)
+    end
+  end
+
+  def mark_ticket_finished
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket.teacher_id = current_user.id
+    if @ticket.active?
+      flash[:notice] = "Ticket Finished"
+      @ticket.finished!
       redirect_to ticket_path(@ticket)
     else
       flash[:alert] = "Ticket not taken"

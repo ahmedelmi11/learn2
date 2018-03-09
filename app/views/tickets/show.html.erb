@@ -17,7 +17,11 @@
   <% end %>
 
   <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
-    <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary"  %>
+    <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary", method: :patch  %>
+  <% end %>
+
+ <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.active? %>
+    <%= link_to "Mark ticket finished", ticket_mark_ticket_finished_path(@ticket), class: "btn btn-primary", method: :patch  %>
   <% end %>
 
   <% if @ticket.taken? &&  (@ticket.student == current_user || @ticket.teacher == current_user)  %>
