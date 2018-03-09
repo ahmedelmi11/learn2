@@ -1,10 +1,19 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .tech-tag {
+  flex: 1 0 auto;
   transition: .5s;
   background-color: gray;
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
   font-weight: bold;
+  text-align: center;
+  margin: 5px;
 }
 
 
