@@ -23,9 +23,9 @@
 /* Right section */
 
 .min-height {
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
 }
 
-body {
-  min-height: 100%;
-}
+// body {
+//   min-height: 100%;
+// }
