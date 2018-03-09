@@ -13,7 +13,8 @@
   <% end %>
 
   <% if @ticket.student == current_user %>
-    <%= link_to "Edit", edit_ticket_path %>
+    <%= link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-default" %>
+    <%= link_to "Dashboard", user_path, class: "btn btn-lg btn-primary" %>
   <% end %>
 
   <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
