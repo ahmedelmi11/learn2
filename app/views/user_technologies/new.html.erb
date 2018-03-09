@@ -1,11 +1,26 @@
 <div class="container min-height">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <h1>Add technology </h1>
+      <h1>Add a technology </h1>
         <%= simple_form_for([@user, @user_technology]) do |f| %>
-          <%= f.association :technology %>
-          <%= f.submit %>
+
+          <div class="form-group check_boxes required user_user_technologies_technology_id">
+            <input type="hidden" name="user[user_technologies][technology_id][]" value="">
+              <div class="technology-choices">
+                <% Technology.all.each do |tech| %>
+                  <input class="hidden" type="checkbox" value="<%= tech.id %>" name="user[user_technologies][technology_id][]" id="user_user_technologies_technology_id_<%= tech.id %>">
+                  <label for="user_user_technologies_technology_id_<%= tech.id %>" class="technology-choice">
+                    <%= tech.name %>
+                    <i class="fa fa-check"></i>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+
+          <%= f.submit class: "btn btn-primary" %>
         <% end %>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag "form_ticket" %>
