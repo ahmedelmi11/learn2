@@ -1,51 +1,90 @@
-<!-- <div class="dashboard-container"> -->
-<div class="grid-container">
-  <div class="left">
-    <h2><u>My Dashboard</u></h2>
-    <h1 class="dashboard-details"><%= @user.first_name %></h1>
-    <h1 class="dashboard-details"><%= @user.last_name %></h1>
-    <h1 class="dashboard-details"><%= @user.email %></h1>
-    <p>
-      <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary"%>
-    </p>
+<div class="row min-height">
+  <div class="col-xs-3">
+    <div class="dashboard-sidebar">
+      <div class="sidebar-img" style="background-image: url(http://kitt.lewagon.com/placeholder/users/ssaunier)"></div>
 
-    <% if @user.technologies.any? %>
-       <% @user.technologies.each do |tech| %>
-          <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
-       <% end %>
-       <%= link_to "Add new speciality", new_user_user_technology_path(@user), class: "btn btn-primary"%>
-    <% else %>
-      <%= link_to "Become a teacher",new_user_user_technology_path(@user), class: "btn btn-primary"%>
-    <% end %>
 
-<div class="wrapper">
-  <div class="tabs">
-    <button onclick="openMe('active-tickets')" class="tab">Active Tickets</button>
-    <button onclick="openMe('tickets-created')" class="tab tab_two">Tickets Created</button>
-  </div>
-  <div id="active-tickets" class="content">
-    <h2>Tickets I need to answer</h2>
-    <% @user.tickets_as_teacher.each do |ticket| %>
-    <p><%= ticket.title %></p>
-    <p><%= ticket.description %></p>
-    <% end %>
-  </div>
-<div id="tickets-created" class="content content_two">
-    <h2>Tickets I made</h2>
-    <% @user.tickets_as_student.each do |ticket| %>
-    <p><%= ticket.title %></p>
-    <p><%= ticket.description %></p>
-    <% end %>
-  </div>
 
-<script>
-  function openMe(inside) {
-    var i, content;
-    content = document.getElementsByClassName('content');
-    for (i = 0; i < content.length; i++){
-      content[i].style.display = 'none';
-    }
-    document.getElementById(inside).style.display = "block";
-  }
-</script>
+
+      <h4 class=""><%= @user.first_name %> <%= @user.last_name %></h4>
+      <p class="dashboard-email"><%= @user.email %></p>
+
+
+        <%= link_to edit_user_path(@user), class: "edit-btn" do %>
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        <% end %>
+
+
+      <% if @user.technologies.any? %>
+         <div class="tags">
+           <% @user.technologies.each do |tech| %>
+              <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
+           <% end %>
+          <%= link_to "+", new_user_user_technology_path(@user), class: "tech-tag tech-btn"%>
+         </div>
+      <% else %>
+        <%= link_to "Become a teacher",new_user_user_technology_path(@user), class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-9">
+    <h2>My Dashboard</h2>
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tickets I created</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tickets I have to answer</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <% @user.tickets_as_student.each do |ticket| %>
+
+            <div class="product">
+              <div class='product-upvote'>
+                <div class="product-arrow"></div>
+                <div class='product-count'><ol><%=Ticket.count%></ol></div>
+              </div>
+              <img src="https://kitt.lewagon.com/placeholder/users/random" alt="kudoz" class="product-image hidden-xs">
+              <div class='product-body'>
+                <h3><%= ticket.title %></h3>
+                <p><%= ticket.teacher.first_name %> <%= ticket.teacher.last_name %> </p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><%= ticket.status %></li>
+                <li><a href="i"><i class="fa fa-star"></i></a></li>
+              </ul>
+            </div>
+
+
+          <% end %>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+          <% @user.tickets_as_teacher.each do |ticket| %>
+
+            <div class="product">
+              <div class='product-upvote'>
+                <div class="product-arrow"></div>
+                <div class='product-count'>95</div>
+              </div>
+              <img src="http://kitt.lewagon.com/placeholder/users/ssaunier" alt="kudoz" class="product-image hidden-xs">
+              <div class='product-body'>
+                <h3><%= ticket.title %></h3>
+                <p><%= ticket.student.first_name %> <%= ticket.student.last_name %> </p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><%= ticket.status %></li>
+                <li><a href=""><i class="fa fa-star"></i></a></li>
+              </ul>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
