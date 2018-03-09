@@ -53,11 +53,13 @@
                 <div class="product-arrow"></div>
                 <div class='product-count'><ol><%=Ticket.count%></ol></div>
               </div>
+
               <% if ticket.pending? %>
               <img src="http://topmops.net/wp-content/uploads/2017/01/avatar-placeholder-generic.jpg" alt="kudoz" class="product-image hidden-xs">
               <% else %>
                 <img src="<%= ticket.teacher.github_avatar_url %>" alt="kudoz" class="product-image hidden-xs">
               <% end %>
+
               <div class='product-body'>
 
                 <% if ticket.status != 'pending' %>
