@@ -32,7 +32,7 @@ class TicketsController < ApplicationController
       @ticket.finished!
       redirect_to ticket_path(@ticket)
     else
-      flash[:alert] = "Ticket not taken"
+      flash[:alert] = "Ticket not marked as finished"
       redirect_to ticket_path(@ticket)
     end
   end

@@ -49,8 +49,13 @@
               </div>
               <img src="https://kitt.lewagon.com/placeholder/users/random" alt="kudoz" class="product-image hidden-xs">
               <div class='product-body'>
+
+                <% if ticket.status != 'pending' %>
                 <h3><%= ticket.title %></h3>
                 <p><%= ticket.teacher.first_name %> <%= ticket.teacher.last_name %> </p>
+                <%else %>
+              <h3>Ticket is still pending</h3>
+              <% end %>
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
                 <li><%= ticket.status %></li>
@@ -78,7 +83,9 @@
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
                 <li><%= ticket.status %></li>
-                <li><a href=""><i class="fa fa-star"></i></a></li>
+                 <%= link_to ticket_path(ticket) do  %>
+                  <li><i class="fa fa-star"></i></li>
+                <% end %>
               </ul>
             </div>
 
