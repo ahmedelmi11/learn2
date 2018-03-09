@@ -27,7 +27,12 @@ class Devise::RegistrationsController < DeviseController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+        # raise
+        if (sign_up_params[:role] == "Tech Guide")
+          respond_with resource, location: new_user_user_technology_path(resource)
+        else
+          respond_with resource, location: after_sign_up_path_for(resource)
+        end
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!

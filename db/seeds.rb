@@ -22,7 +22,7 @@ java = Technology.create!(name: "Java")
 php = Technology.create!(name: "PHP")
 android = Technology.create!(name: "Android")
 ios = Technology.create!(name: "IOS")
-go = Technology.create!(name: "CSS")
+css = Technology.create!(name: "CSS")
 
 
 puts "Linking users to technologies"
