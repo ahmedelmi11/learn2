@@ -15,15 +15,22 @@
         <% end %>
 
 
+      <hr>
       <% if @user.technologies.any? %>
+        <h4 class="text-center">Expert in</h4>
          <div class="tags">
            <% @user.technologies.each do |tech| %>
               <span class="tech-tag <%= tech.name.downcase %>-tag"><%= tech.name %></span>
            <% end %>
-          <%= link_to "+", new_user_user_technology_path(@user), class: "tech-tag tech-btn"%>
+
+              <%= link_to "+", new_user_user_technology_path(@user), class: "tech-tag tech-btn"%>
+
+
          </div>
       <% else %>
+
         <%= link_to "Become a teacher",new_user_user_technology_path(@user), class: "btn btn-primary"%>
+
       <% end %>
     </div>
   </div>
@@ -74,7 +81,7 @@
             <div class="product">
               <div class='product-upvote'>
                 <div class="product-arrow"></div>
-                <div class='product-count'>95</div>
+                <div class='product-count'><%= Ticket.count %></div>
               </div>
               <img src="http://kitt.lewagon.com/placeholder/users/ssaunier" alt="kudoz" class="product-image hidden-xs">
               <div class='product-body'>

@@ -50,8 +50,15 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <!--Sign up to become a teacher (when new)-->
+  <%= link_to t(".sign_up", default: "Register as a Tech Guide"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <%=  %>
     <% end %>
   </div>
+
+  <!--Sign up to become a teacher (when new)-->
+  <%#= link_to (".sign_up", default: "Register as a Tech Guide"), new_user_user_technology_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -65,4 +72,3 @@
     </div>
   </div>
 </div>
-
