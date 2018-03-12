@@ -13,11 +13,12 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <!--See all tickets displays regardless of whether user is logged in -->
+    <%= link_to "See all tickets", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "All tickets", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "New ticket", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -48,11 +49,11 @@
         </div>
       </div>
     <% else %>
+
+      <!--Sign up to become a teacher (when new)-->
+      <%= link_to t(".sign_up", default: "Register as a Tech Guide"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <!--Sign up to become a teacher (when new)-->
-  <%= link_to t(".sign_up", default: "Register as a Tech Guide"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-  <%=  %>
     <% end %>
   </div>
 

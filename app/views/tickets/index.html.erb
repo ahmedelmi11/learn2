@@ -8,7 +8,8 @@
     <div class="card">
       <div class="card-info">
         <h3><%= ticket.title %></h3>
-        <p><%= ticket.description %></p>
+        <!--Show start of ticket description -->
+        <p><%= ticket.description[0..50] %></p>
       </div>
       <div class="card-technology">
         <span><% ticket.technologies.each do |technology| %>

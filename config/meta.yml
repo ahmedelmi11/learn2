@@ -1,0 +1,5 @@
+meta_product_name: "Emergency Aid for Tech Projects"
+meta_title: "Coding solutions - professional help in 60 min."
+meta_description: "A platform that matches adults with mentors. You use it to make payments, requests and consultations. We measure the results."
+meta_image: "logo.png"                       # should exist in `app/assets/images/`
+twitter_account: "@Futuresay_net"   # required for Twitter Cards
