@@ -30,7 +30,7 @@ class TicketsController < ApplicationController
     if @ticket.active?
       flash[:notice] = "Ticket Finished"
       @ticket.finished!
-      redirect_to ticket_path(@ticket)
+      redirect_to user_path(current_user)
     else
       flash[:alert] = "Ticket not marked as finished"
       redirect_to ticket_path(@ticket)
