@@ -28,6 +28,6 @@ class PaymentsController < ApplicationController
 private
 
   def set_ticket
-    @ticket = ticket.where(state: 'pending').find(params[:ticket_id])
+    @ticket = Ticket.where(state: 'pending').find(params[:ticket_id])
   end
 end
