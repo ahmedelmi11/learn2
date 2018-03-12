@@ -2,7 +2,7 @@ class TicketTechnologiesController < ApplicationController
   def create
    @ticket_technology = TicketTechnology.new(ticket_technology_params)
    if @ticket_technology.save
-    redirect_to ticket_path(ticket)
+    redirect_to new_ticket_payment_path(@ticket)
    else
     render :create
   end

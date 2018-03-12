@@ -1,0 +1,17 @@
+<h1>Purchase of ticket <%= @ticket.ticket_sku %></h1>
+<%= form_tag new_ticket_payment_path(@ticket) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@ticket.amount) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Ticket"
+    data-email="<%= current_user.email %>"
+    data-description="Ticket <%= @ticket.ticket_sku %>"
+    data-amount="<%= @ticket.amount_cents %>"
+    data-currency="<%= @ticket.amount.currency %>">
+  </script>
+<% end %>

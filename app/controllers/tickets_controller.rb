@@ -57,7 +57,6 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
-
     @ticket.student_id = current_user.id
     if @ticket.save
       create_ticket_technologies(@ticket)
@@ -82,7 +81,7 @@ class TicketsController < ApplicationController
   end
 
   def tickets_params
-    params.require(:ticket).permit(:description, :finished, :title)
+    params.require(:ticket).permit(:description, :finished, :title, :ticket_sku)
   end
 end
 
