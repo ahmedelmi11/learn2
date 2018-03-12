@@ -1,6 +1,8 @@
 <%= simple_form_for(@ticket) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :sku %>
+
 
   <div class="form-group check_boxes required ticket_ticket_technologies_technology_id">
     <input type="hidden" name="ticket[ticket_technologies][technology_id][]" value="">
