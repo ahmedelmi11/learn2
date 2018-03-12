@@ -29,20 +29,17 @@
               </div>
               <div class="col-xs-6">
                 <%= f.input :github_username %>
-
               </div>
 
             </div>
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
             <%= f.input :password_confirmation, required: true %>
-          </div>
+            </div>
 
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
           </div>
         <% end %>
-
-
     </div>
   </div>
 </div>
