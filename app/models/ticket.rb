@@ -16,4 +16,8 @@ class Ticket < ApplicationRecord
   def taken?
     !available?
   end
+
+  def chat_available?
+    status == "active" || status == "finished"
+  end
 end

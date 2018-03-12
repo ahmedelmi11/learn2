@@ -1,43 +1,62 @@
-<div class="container min-height">
-  <h1><%= @ticket.title %></h1>
+<div class="container">
+  <div class="show-ticket">
+    <div class="ticket-header <%= @ticket.taken? ? "taken" : "available" %>">
+      <span><%= @ticket.title %></span>
+      <span><%= @ticket.status %></span>
+    </div>
+    <div class="ticket-main">
+      <div class="left">
+        <div class="ticket-info">
+         <% if @ticket.student.github_avatar_url%>
+           <%= image_tag current_user.github_avatar_url, class: "avatar" %>
+         <% else %>
+           <%= image_tag "logo.png", class: "avatar" %>
+         <% end %>
+         <span>Created <%= (Time.now - @ticket.created_at).to_i / 60 %> minutes ago.</span>
+        </div>
+        <div class="ticket-description">
+          <%= markdown(@ticket.description) %>
+        </div>
+        <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
+          <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
+        <% end %>
+        <% if @ticket.student == current_user %>
+          <%= link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
+        <% end %>
 
-  <!-- # this used to have an option to add a ticket technology but Ahmed has added this to the new page  -->
+      </div>
+      <% if @ticket.chat_available? %>
+        <div class="right">
+          <% @comments.each do |c| %>
+            <div class="message-ticket <%= "text-right" if current_user == c.user %>">
+              <% if @ticket.student.github_avatar_url%>
+                <%= image_tag current_user.github_avatar_url, class: "avatar" %>
+              <% else %>
+                <%= image_tag "logo.png", class: "avatar" %>
+              <% end %>
+              <%= markdown(c.content) %>
+            </div>
+          <% end %>
+          <%= simple_form_for [@ticket, @comment] do |c| %>
+            <%= c.input :content %>
+            <%= c.button :submit, class: "btn btn-primary" %>
+          <% end %>
+        </div>
 
-
-  <p><%= markdown(@ticket.description) %></p>
-
-  <!-- # this displays an edit option if the user viewing the ticket is the user who created the  -->
-
-  <% @ticket.technologies.each do |tech| %>
-    <p><%= tech.name %></p>
-  <% end %>
-
-  <% if @ticket.student == current_user %>
-    <%= link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-default" %>
-    <%= link_to "Dashboard", user_path, class: "btn btn-lg btn-primary" %>
-  <% end %>
-
-  <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
-    <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-primary", method: :patch  %>
-  <% end %>
-
- <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.active? %>
-    <%= link_to "Mark ticket finished", ticket_mark_ticket_finished_path(@ticket), class: "btn btn-primary", method: :patch  %>
-  <% end %>
-
-  <% if @ticket.taken? &&  (@ticket.student == current_user || @ticket.teacher == current_user)  %>
-
-    <h1>Add comment </h1>
-    <%= simple_form_for [@ticket, @comment] do |c| %>
-      <%= c.input :content %>
-      <%= c.button :submit %>
-    <% end %>
-
-    <% @comments.each do |c| %>
-      <p><%= c.user.email %></p>
-      <%= markdown(c.content) %>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
