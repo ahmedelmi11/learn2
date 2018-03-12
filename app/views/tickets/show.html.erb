@@ -15,7 +15,7 @@
          <span>Created <%= (Time.now - @ticket.created_at).to_i / 60 %> minutes ago.</span>
         </div>
         <div class="ticket-description">
-          <%= markdown(@ticket.description) %>
+          <%= render_description(@ticket.description).html_safe %>
         </div>
         <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
           <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
