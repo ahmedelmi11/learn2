@@ -44,7 +44,7 @@ class TicketsController < ApplicationController
     if @ticket.update(tickets_params)
       TicketTechnology.where(ticket_id: @ticket.id).destroy_all
       create_ticket_technologies(@ticket)
-      flash[:notice] = "Ticket was succesfully updated"
+      flash[:notice] = "Ticket was successfully updated"
       redirect_to ticket_path(@ticket)
     else
       render :edit
@@ -61,7 +61,7 @@ class TicketsController < ApplicationController
     @ticket.student_id = current_user.id
     if @ticket.save
       create_ticket_technologies(@ticket)
-      flash[:notice] = "Ticket was succesfully created"
+      flash[:notice] = "Ticket was successfully created"
       redirect_to ticket_path(@ticket)
     else
       render :new

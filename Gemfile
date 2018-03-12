@@ -10,7 +10,9 @@ gem 'rails', '5.1.5'
 gem 'redis'
 gem 'redcarpet', '~> 3.0.0'
 
-
+# sorting payment-money-rails & stripe
+gem 'money-rails'
+gem 'stripe'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
