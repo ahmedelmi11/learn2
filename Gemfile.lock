@@ -39,7 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    autoprefixer-rails (8.1.0)
+    autoprefixer-rails (8.1.0.1)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -57,7 +57,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    erubi (1.7.0)
+    erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
@@ -66,7 +66,6 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-    geocoder (1.4.6)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -110,7 +109,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
-    puma (3.11.2)
+    puma (3.11.3)
     rack (2.0.4)
     rack-proxy (0.6.4)
       rack
@@ -148,6 +147,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rouge (3.1.1)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -181,7 +181,7 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.6)
+    uglifier (4.1.7)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -207,7 +207,6 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass (~> 4.7)
-  geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   money-rails
@@ -218,6 +217,7 @@ DEPENDENCIES
   rails (= 5.1.5)
   redcarpet (~> 3.0.0)
   redis
+  rouge
   sass-rails
   simple_form
   spring
