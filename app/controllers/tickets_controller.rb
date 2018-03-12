@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:update, :edit, :show]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.where(state: 'paid')
   end
 
   def show
@@ -30,7 +30,7 @@ class TicketsController < ApplicationController
     if @ticket.active?
       flash[:notice] = "Ticket Finished"
       @ticket.finished!
-      redirect_to ticket_path(@ticket)
+      redirect_to user_path(current_user)
     else
       flash[:alert] = "Ticket not marked as finished"
       redirect_to ticket_path(@ticket)
@@ -44,7 +44,7 @@ class TicketsController < ApplicationController
     if @ticket.update(tickets_params)
       TicketTechnology.where(ticket_id: @ticket.id).destroy_all
       create_ticket_technologies(@ticket)
-      flash[:notice] = "Ticket was succesfully updated"
+      flash[:notice] = "Ticket was successfully updated"
       redirect_to ticket_path(@ticket)
     else
       render :edit
@@ -57,12 +57,13 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
-
+    @tickt.sku = "todo"
+    @ticket.price = 10
     @ticket.student_id = current_user.id
     if @ticket.save
       create_ticket_technologies(@ticket)
-      flash[:notice] = "Ticket was succesfully created"
       redirect_to ticket_path(@ticket)
+      flash[:notice] = "Ticket was successfully created"
     else
       render :new
     end
@@ -82,7 +83,7 @@ class TicketsController < ApplicationController
   end
 
   def tickets_params
-    params.require(:ticket).permit(:description, :finished, :title)
+    params.require(:ticket).permit(:description, :finished, :title, :ticket_sku, :state)
   end
 end
 

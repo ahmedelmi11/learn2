@@ -9,8 +9,9 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem 'redcarpet', '~> 3.0.0'
+gem 'money-rails'
+gem 'stripe'
 gem 'rouge'
-
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

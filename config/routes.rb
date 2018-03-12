@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tickets, except: [:destroy] do
+    resources :payments, only: [:create]
     resources :ticket_technologies, only: [ :create ]
     patch 'accept_ticket', to: "tickets#accept_ticket", as: :accept_ticket
     patch 'mark_ticket_finished', to: "tickets#mark_ticket_finished", as: :mark_ticket_finished
