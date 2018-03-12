@@ -9,7 +9,7 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem 'redcarpet', '~> 3.0.0'
-
+gem 'rouge'
 
 
 gem 'autoprefixer-rails'
