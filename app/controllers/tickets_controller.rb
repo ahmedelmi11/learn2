@@ -57,12 +57,12 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
+    @ticket.price = 10
     @ticket.student_id = current_user.id
     if @ticket.save
       create_ticket_technologies(@ticket)
-      redirect_to new_ticket_payment_path(@ticket)
+      redirect_to ticket_path(@ticket)
       flash[:notice] = "Ticket was successfully created"
-
     else
       render :new
     end
