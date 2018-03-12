@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:update, :edit, :show]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.where(state: 'paid')
   end
 
   def show
@@ -57,6 +57,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
+    @tickt.sku = "todo"
     @ticket.price = 10
     @ticket.student_id = current_user.id
     if @ticket.save
