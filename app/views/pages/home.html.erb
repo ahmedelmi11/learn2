@@ -7,7 +7,7 @@
 
     <p>Coding issues? Get professional help in 5 min.</p>
     <% if !user_signed_in? %>
-      <%= link_to "Get Help", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Get Help", new_user_registration_path, class: "btn btn-lg btn-primary", data: {toggle: 'modal', target: '#exampleModal'}  %>
     <% else %>
       <%= link_to "Get Help", new_ticket_path, class: "btn btn-lg btn-primary" %>
     <% end %>
@@ -101,5 +101,6 @@
 
 </div>
 
+<%= render 'shared/modal' %>
 
 

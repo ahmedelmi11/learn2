@@ -12,6 +12,7 @@ gem 'redcarpet', '~> 3.0.0'
 gem 'money-rails'
 gem 'stripe'
 gem 'rouge'
+gem 'omniauth-github'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'ticket_technologies/create'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: 'pages#home'
 
   resources :tickets, except: [:destroy] do

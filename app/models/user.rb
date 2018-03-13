@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :user_technologies
   has_many :technologies, through: :user_technologies
   has_many :comments
@@ -10,12 +10,25 @@ class User < ApplicationRecord
   has_many :tickets_as_student, :class_name => "Ticket", :foreign_key => :student_id
   has_many :tickets_as_teacher, :class_name => "Ticket", :foreign_key => :teacher_id
   # after_create :get_user_avatar
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # Mar 13 - removed this validation because we now register through github
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
 
   def teacher?
     self.technologies.any?
+  end
+
+  def self.from_omniauth(auth)
+    # binding.pry
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.github_avatar_url = auth.extra.raw_info.avatar_url
+      user.first_name = auth.info.nickname
+    end
   end
 
   # def get_user_avatar
