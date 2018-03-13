@@ -1,6 +1,24 @@
 <%= simple_form_for(@ticket) do |f| %>
   <%= f.input :title %>
-  <%= f.input :description %>
+
+
+
+  <div class="form-group text optional ticket_description">
+    <label class="control-label text optional" for="ticket_description">Description</label><br><span id="how-it-works" class="slide-down">See how to add code</span>
+    <textarea class="form-control text optional" name="ticket[description]" id="ticket_description"></textarea>
+    <div class="explanation hidden">
+    <p>If you want to include code in your description you must use markdown, for example:
+    </p>
+    <p>```erb</p>
+    <p>puts "Hello</p>
+    <p>```</p>
+    <p>would result in this:</p>
+    <%= raw render_description("```erb\n puts 'Hello'\n```") %>
+  </div>
+  </div>
+
+
+
 
   <div class="form-group check_boxes required ticket_ticket_technologies_technology_id">
     <input type="hidden" name="ticket[ticket_technologies][technology_id][]" value="">
