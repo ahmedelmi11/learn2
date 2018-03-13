@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   def teacher?
     self.technologies.any?
-    self.github_username?
   end
 
   # def get_user_avatar
