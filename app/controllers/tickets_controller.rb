@@ -69,6 +69,14 @@ class TicketsController < ApplicationController
     end
   end
 
+  def create_video_chat
+    @ticket = Ticket.find(params[:ticket_id])
+    message =  "Join me on this video session\n" + "https://appear.in/learn2_#{@ticket.id}_#{@ticket.student.email}"
+    @comment = Comment.new(ticket: @ticket, user: current_user, content: message)
+    @comment.save
+    redirect_to ticket_path(@ticket)
+  end
+
   private
 
   def create_ticket_technologies(ticket)

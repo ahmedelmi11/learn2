@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tickets, except: [:destroy] do
+    post 'create_video_chat', to: "tickets#create_video_chat", as: :create_video_chat
     resources :payments, only: [:create]
     resources :ticket_technologies, only: [ :create ]
     patch 'accept_ticket', to: "tickets#accept_ticket", as: :accept_ticket
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
+
 end
