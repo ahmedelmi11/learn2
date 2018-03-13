@@ -56,7 +56,7 @@
           <% end %>
           <%= simple_form_for [@ticket, @comment] do |c| %>
             <%= c.input :content %>
-            <%= c.button :submit, class: "btn btn-primary" %>
+            <%= c.button :submit, class: "btn btn-primary", id: "comment-button" %>
           <% end %>
         </div>
 
