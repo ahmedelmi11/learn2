@@ -17,12 +17,13 @@
         <div class="ticket-description">
           <%= raw render_description(@ticket.description) %>
         </div>
+
         <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
           <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
         <% end %>
-        <% if @ticket.student == current_user %>
-          <%= link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
-        <% end %>
+        <%# if @ticket.student == current_user %>
+          <%# link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
+        <%# end %>
         <% if @ticket.state == 'pending' %>
           <%= @ticket.state %>
           <%= form_tag ticket_payments_path(@ticket) do %>
@@ -56,7 +57,9 @@
           <% end %>
           <%= simple_form_for [@ticket, @comment] do |c| %>
             <%= c.input :content %>
-            <%= c.button :submit, class: "btn btn-primary" %>
+            <%= c.button :submit, class: "btn btn-primary", id: "comment-button" %>
+            <!-- <a id="video-chat">Video Chat</a> -->
+            <%= link_to "Video chat", ticket_create_video_chat_path(@ticket), method: :post %>
           <% end %>
         </div>
 
@@ -64,11 +67,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 
