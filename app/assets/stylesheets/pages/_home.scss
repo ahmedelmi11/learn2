@@ -15,7 +15,7 @@
 }
 
 /* Add some shadows to create a card effect */
-.card {
+.meet-the-team-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -31,9 +31,6 @@
     display: table;
 }
 
-.title {
-    color: $gray;
-}
 
 .button {
     border: none;
@@ -51,14 +48,89 @@
     background-color: #555;
 }
 
-
+.meet-the-team-card {
+  background-color: $white;
+}
 .meet-team-photo {
   height: 150px;
-  width: 50%;
+  width: auto;
   border-radius: 50%;
+  align-items: center;
 }
 
+ * {
+    box-sizing: border-box;
+}
 
+/* Create three columns of equal width */
+.payment-container{
+  border-style: solid;
+  height: 600px;
+}
+
+.payment-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  opacity: 0.9;
+  background-color: $white;
+}
+
+.payment-card {
+  height: 80%;
+  width: 90%;
+  background-color: $white;
+  color: $gray;
+  border-radius: 10px;
+  border: 2px solid #930077;
+  box-shadow: 0 1px 1px 0 rgba(31, 45, 61, 0.05)
+}
+
+.payment-card h5{
+  margin-left: 20px;
+  font-size: 70px;
+}
+.payment-card h4{
+  margin-top: 40px;
+  margin-left: 30px;
+}
+.payment-card h6{
+ margin-left: 110px;
+ font-size: 30px;
+}
+.basic h3 {
+  color: $orange;
+}
+
+.advanced h3 {
+  color: $green;
+}
+
+.premium h3{
+  color: $secondary;
+}
+.payment-card-container :hover{
+  opacity: 0.4;
+
+}
+.payment-columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+  }
+
+.start-plan{
+  text-align: center;
+}
+
+/* Change the width of the three columns to 100%
+(to stack horizontally on small screens) */
+@media only screen and (max-width: 600px) {
+    .payment-columns {
+        width: 100%;
+    }
+}
 
 
 
