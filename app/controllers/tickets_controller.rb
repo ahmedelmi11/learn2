@@ -57,7 +57,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(tickets_params)
-    @tickt.sku = "todo"
+    @ticket.sku = "todo"
     @ticket.price = 10
     @ticket.student_id = current_user.id
     if @ticket.save
