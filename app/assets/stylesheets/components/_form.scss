@@ -44,3 +44,11 @@
   cursor: pointer;
   }
 }
+
+.slide-down {
+  color: $secondary;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

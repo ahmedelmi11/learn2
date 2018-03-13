@@ -50,6 +50,14 @@
   }
 }
 
-.ticket-description {
-  max-width: 1000px;
-}
+
+.explanation {
+  background: white;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
+  font-size: 14px;
+  padding: 20px;
+  p {
+    margin: 0;
+    margin-bottom: 5;
+  }
+
