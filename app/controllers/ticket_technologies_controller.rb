@@ -1,7 +1,7 @@
 class TicketTechnologiesController < ApplicationController
   def create
    @ticket_technology = TicketTechnology.new(ticket_technology_params)
-   @ticket_technology.save
+  @ticket_technology.save
 
 end
 
