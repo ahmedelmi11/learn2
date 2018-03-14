@@ -51,62 +51,56 @@
             <div class="product">
               <div class='product-upvote'>
                 <div class="product-arrow"></div>
-                <div class='product-count'><ol><%=Ticket.count%></ol></div>
+                <div class='product-count'>
+                  <ol><%=Ticket.count%></ol>
+                </div>
               </div>
 
               <% if ticket.pending? %>
-              <img src="http://topmops.net/wp-content/uploads/2017/01/avatar-placeholder-generic.jpg" alt="kudoz" class="product-image hidden-xs">
+                <img src="http://topmops.net/wp-content/uploads/2017/01/avatar-placeholder-generic.jpg" alt="kudoz" class="product-image hidden-xs">
               <% else %>
                 <img src="<%= ticket.teacher.github_avatar_url %>" alt="kudoz" class="product-image hidden-xs">
               <% end %>
 
-              <div class='product-body'>
-
-                <% if ticket.status != 'pending' %>
+            <div class='product-body'>
+              <% if ticket.status != 'pending' %>
                 <h3><%= ticket.title %></h3>
-                <p><%= ticket.teacher.first_name %> <%= ticket.teacher.last_name %> </p>
-                <%else %>
-              <h3>Ticket is still pending</h3>
+                <p><%= ticket.teacher.first_name %> <%= ticket.teacher.last_name %></p>
+              <%else %>
+                <h3>Ticket is still pending</h3>
               <% end %>
-              </div>
-
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><%= ticket.status %></li>
-
-                  <li><i class="fa fa-star"></i></li>
-
-              </ul>
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><%= ticket.status %></li>
+              <li><i class="fa fa-star"></i></li>
+            </ul>
             </div>
           <% end %>
-
-          <% end %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="profile">
-          <% @user.tickets_as_teacher.each do |ticket| %>
-
-            <div class="product">
-              <div class='product-upvote'>
-                <div class="product-arrow"></div>
-                <div class='product-count'><%= Ticket.count %></div>
-              </div>
-              <img src="<%= ticket.student.github_avatar_url %>" alt="kudoz" class="product-image hidden-xs">
-              <div class='product-body'>
-                <h3><%= ticket.title %></h3>
-
-                <p><%= ticket.student.first_name %> <%= ticket.student.last_name %> </p>
-              </div>
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><%= ticket.status %></li>
-
-                  <li><i class="fa fa-star"></i></li>
-
-              </ul>
-            </div>
-
-          <% end %>
-        </div>
+        <% end %>
       </div>
-
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <% @user.tickets_as_teacher.each do |ticket| %>
+          <%= link_to ticket_path(ticket) do %>
+          <div class="product">
+            <div class='product-upvote'>
+              <div class="product-arrow"></div>
+              <div class='product-count'>
+                <%= Ticket.count %>
+              </div>
+            </div>
+            <img src="<%= ticket.student.github_avatar_url %>" alt="kudoz" class="product-image hidden-xs">
+            <div class='product-body'>
+              <h3><%= ticket.title %></h3>
+              <p><%= ticket.student.first_name %> <%= ticket.student.last_name %> </p>
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><%= ticket.status %></li>
+              <li><i class="fa fa-star"></i></li>
+            </ul>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
