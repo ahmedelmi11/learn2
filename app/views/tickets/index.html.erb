@@ -1,23 +1,28 @@
-<h1>All the tickets</h1>
+<h2>Tickets Pending </h2>
 
-
-<div class="row">
-<% @tickets.each do |ticket| %>
-
-  <div class="col-xs-3">
-    <div class="card">
-      <div class="card-info">
-        <h3><%= ticket.title %></h3>
-        <!--Show start of ticket description -->
-        <p><%= ticket.description[0..50] %></p>
+<div class= "container">
+  <div class="row">
+  <% @tickets.each do |ticket| %>
+    <div class="col-xs-12 col-md-6">
+      <div class="card">
+        <div class="card-title">
+          <h3><%= ticket.title %></h3>
+        </div>
+        <div class="card-technology">
+          <span>
+            <% ticket.technologies.each do |technology| %>
+              <%= technology.name %>
+            <% end %>
+          </span>
+        </div>
+        <%= link_to "view ticket", ticket_path(ticket), class: "card-link"  %>
+        <img src="<%= ticket.student.github_avatar_url %>" alt="" class="ticket-image">
       </div>
-      <div class="card-technology">
-        <span><% ticket.technologies.each do |technology| %>
-          <%= technology.name %>  <% end %></span>
-      </div>
-      <%= link_to "show",ticket_path(ticket), class: "card-link"  %>
     </div>
+    <% end %>
   </div>
-
-<%  end %>
 </div>
+
+
+
+
