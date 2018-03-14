@@ -1,4 +1,4 @@
-<h2>Tickets Pending </h2>
+<h1>Tickets Page </h1>
 
 <div class= "container">
   <div class="row">
@@ -14,14 +14,14 @@
           <div class="card-content">
             <div>
               <h3><%= ticket.title %></h3>
-              <p>Created 5 minutes ago</p>
+              <p> Created <%= (Time.now - ticket.created_at).to_i / 60 %> minutes ago.</p>
             </div>
 
             <div class="card-tags">
                 <% ticket.technologies.each do |technology| %>
-                <span class="tech-tag <%= technology.name.downcase %>-tag">
+                <div class="tech-tag <%= technology.name.downcase %>-tag">
                   <%= technology.name %>
-                </span>
+                </div>
                 <% end %>
             </div>
           </div>
@@ -32,8 +32,6 @@
     <% end %>
   </div>
 </div>
-
-
 
 
 
