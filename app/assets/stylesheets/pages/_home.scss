@@ -24,13 +24,23 @@
     padding: 0 16px;
 }
 
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.marg {
+  margin: 20px;
+}
 /* Clear floats */
 .container::after, .row::after {
     content: "";
     clear: both;
     display: table;
 }
-
+.jc-center {
+  display: flex;
+  justify-content: center;
+}
 
 .button {
     border: none;
@@ -48,6 +58,11 @@
     background-color: #555;
 }
 
+.card-body{
+  border: 2px solid $blue;
+  display: inline-block;
+  padding: 20px;
+}
 .meet-the-team-card {
   background-color: $white;
   text-align: center;
