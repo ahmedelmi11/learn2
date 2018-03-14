@@ -1,4 +1,67 @@
 .card {
-  height: 250px;
   background-color: white;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.card-user {
+  flex: 0 0 150px;
+  height: 150px;
+  background-size: cover;
+}
+
+.card-main {
+  width: 100%;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 0 10px
+}
+
+.card-header.pending {
+  background-color: $orange;
+}
+
+.card-header.active {
+  background-color: $blue;
+}
+
+.card-header.finished {
+  background-color: $green;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  padding: 10px;
+  h3 {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    opacity: .5;
+  }
+
 }
