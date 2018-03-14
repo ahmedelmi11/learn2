@@ -24,7 +24,11 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.info.email
+      if auth.info.email.blank?
+        user.email = "noemail@found.com"
+      else
+        user.email = auth.info.email
+      end
       user.password = Devise.friendly_token[0,20]
       user.github_avatar_url = auth.extra.raw_info.avatar_url
       user.first_name = auth.info.nickname
