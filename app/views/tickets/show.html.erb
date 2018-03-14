@@ -68,8 +68,12 @@
             <%= link_to "Video chat", ticket_create_video_chat_path(@ticket), method: :post %>
           <% end %>
         <% else %>
-          <p>Payment has been recieved and a teacher will answer your ticket shortly</p>
-          <p>If the ticket has not been answered within 5 minutes you will received a full refund</p>
+          <div class= "card-index">
+            <p>Payment has been recieved and a teacher will answer your ticket shortly</p>
+          </div>
+          <div class= "card-index">
+            <p>If the ticket has not been responded to within 5 minutes you will received a full refund</p>
+          </div>
           <% if @ticket.paid_at && ((Time.now - @ticket.paid_at).to_i < 301) %>
             <div>
               <span id="countdown-minutes"><%= (300 - (Time.now - @ticket.paid_at).to_i) / 60 %></span>
