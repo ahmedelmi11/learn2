@@ -65,3 +65,19 @@
   }
 
 }
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tech-tag {
+  max-width: 120px;
+  min-width: 120px;
+}
+
+// .index-header{
+//   justify:inline-block;
+// }
+
+
