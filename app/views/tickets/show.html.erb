@@ -7,7 +7,7 @@
     <div class="ticket-main">
       <div class="left">
         <div class="ticket-info">
-         <% if @ticket.student.github_avatar_url%>
+         <% if @ticket.student.github_avatar_url&%>
            <%= image_tag current_user.github_avatar_url, class: "avatar" %>
          <% else %>
            <%= image_tag "logo.png", class: "avatar" %>
@@ -18,8 +18,10 @@
           <%= raw render_description(@ticket.description) %>
         </div>
 
+        <% if user_signed_in? %>
         <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
           <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
+        <% end %>
         <% end %>
         <%# if @ticket.student == current_user %>
           <%# link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
