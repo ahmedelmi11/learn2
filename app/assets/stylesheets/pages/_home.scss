@@ -50,6 +50,8 @@
 
 .meet-the-team-card {
   background-color: $white;
+  text-align: center;
+  padding: 10px;
 }
 .meet-team-photo {
   height: 150px;
@@ -58,9 +60,6 @@
   align-items: center;
 }
 
- * {
-    box-sizing: border-box;
-}
 
 /* Create three columns of equal width */
 .payment-container{
@@ -97,7 +96,7 @@
   }
 }
 
-img {
+.ticket-icon img {
   width: 35px;
 }
 
