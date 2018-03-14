@@ -45,6 +45,9 @@
       </div>
       <% if @ticket.chat_available? %>
         <div class="right">
+          <div class="comments">
+
+
           <% @comments.each do |c| %>
             <div class="message-ticket <%= "text-right" if current_user == c.user %>">
               <% if @ticket.student.github_avatar_url%>
@@ -55,6 +58,7 @@
               <%= markdown(c.content) %>
             </div>
           <% end %>
+          </div>
           <%= simple_form_for [@ticket, @comment] do |c| %>
             <%= c.input :content %>
             <%= c.button :submit, class: "btn btn-primary", id: "comment-button" %>
