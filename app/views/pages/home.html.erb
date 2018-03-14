@@ -15,6 +15,7 @@
 
 </div>
 
+<div class="container">
 
 <div class="w3-container">
   <h2>About</h2>
@@ -28,7 +29,6 @@ while tech novices are offered unparalled flexible access to high quality tech e
       <h5>Footer</h5>
     </footer>
   </div>
-</div>
 
 
 <div class="w3-container">
@@ -98,40 +98,52 @@ while tech novices are offered unparalled flexible access to high quality tech e
 
 <div class="row">
   <h2 class="start-plan">It all start with a plan</h2>
+
   <div class="payment-container">
     <div class="col-xs-12 col-sm-4 payment-card-container">
       <div class="payment-card basic">
+       <div class="payment-card-wrapper">
         <h3> Basic Plan</h3>
-          <h5> £10 </h5>
-          <h6> per ticket</h6>
-          <h4> - Pay as you go</h4>
-          <h4> - Includes feedback till problem resolved</h4>
-          <h4> - Includes option to become a tech guide </h4>
-
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>
+          <p> Pay as you go, feedback till problem resolved and the option to become a tech guide </p>
+          <h5> £10 per ticket/user</h5>
+          <div class="top-marg">
+            <a href="#" class="payment-button">Join us</a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-xs-12 col-sm-4 payment-card-container">
       <div class="payment-card advanced">
+        <div class="payment-card-wrapper">
         <h3>Advanced Plan</h3>
-          <h5> £20 </h5>
-          <h6> per month</h6>
-          <h4> - 5 tickets</h4>
-          <h4> - Includes feedback till problem resolved</h4>
-          <h4> - Includes option to become a tech guide </h4>
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>
+          <p> Get 5 tickets, feedback till problem resolved and the option to become a tech guide </p>
+          <h5> £20 mo/user</h5>
+          <div class="top-marg">
+            <a href="#" class="payment-button">Buy now</a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-xs-12 col-sm-4 payment-card-container">
       <div class="payment-card premium">
+        <div class="payment-card-wrapper">
         <h3>Premium Plan</h3>
-          <h5> £50 </h5>
-           <h6> per month</h6>
-          <h4> - 15 tickets</h4>
-          <h4> - Includes feedback till problem resolved</h4>
-          <h4> - Includes option to become a tech guide </h4>
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>
+        <%= image_tag "ticket.png", class: 'ticket-icon' %>        <p> Get 15 tickets, feedback till problem resolved and the option to become a tech guide </p>
+          <h5> £50 mo /  user </h5>
+          <div class="top-marg">
+            <a href="#" class="payment-button">Contact Sales</a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

@@ -65,7 +65,7 @@
 /* Create three columns of equal width */
 .payment-container{
   border-style: solid;
-  height: 600px;
+
 }
 
 .payment-card-container {
@@ -74,51 +74,109 @@
   align-items: center;
   height: 100%;
   opacity: 0.9;
-  background-color: $white;
+  background-color: $light-gray;
+  margin-bottom: 80px;
 }
 
 .payment-card {
-  height: 80%;
   width: 90%;
   background-color: $white;
   color: $gray;
-  border-radius: 10px;
-  border: 2px solid #930077;
+  border-radius: 3px;
+  height: 400px;
   box-shadow: 0 1px 1px 0 rgba(31, 45, 61, 0.05)
 }
 
-.payment-card h5{
-  margin-left: 20px;
-  font-size: 70px;
+.payment-card-wrapper {
+  padding: 12px 18px;
+  text-align: center;
+  p{
+    padding: 20px;
+    font-size: 16px;
+     margin-bottom: 20px;
+  }
 }
-.payment-card h4{
+
+img {
+  width: 35px;
+}
+
+
+.payment-card h5 {
+ font-size: 22px;
+ border-bottom: 1px solid #e0dede;
+
+}
+.payment-card h4 {
   margin-top: 40px;
   margin-left: 30px;
 }
-.payment-card h6{
+.payment-card h6 {
  margin-left: 110px;
  font-size: 30px;
 }
-.basic h3 {
-  color: $orange;
+
+.payment-button {
+  color: white;
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+}
+.payment-button:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+.top-marg {
+  margin-top: 40px;
+}
+.basic {
+ margin-top: 30px;
+ border-top: 20px solid $green;
+
+ h3 {
+  color: $gray;
+  }
+  .payment-button{
+    background-color: $green;
+  }
 }
 
-.advanced h3 {
-  color: $green;
+.advanced {
+  margin-top: 30px;
+  border-top: 20px solid $blue;
+  h3 {
+    color: $gray;
+  }
+  .payment-button{
+    background-color: $blue;
+  }
 }
 
-.premium h3{
-  color: $secondary;
+.premium {
+  margin-top: 30px;
+  border-top: 20px solid $orange;
+  h3 {
+    color: $gray;
+  }
+  .payment-button{
+    background-color: $orange;
+  }
 }
+
 .payment-card-container :hover{
   opacity: 0.4;
 
 }
 .payment-columns {
-    float: left;
-    width: 33.3%;
-    padding: 8px;
-  }
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+}
 
 .start-plan{
   text-align: center;
