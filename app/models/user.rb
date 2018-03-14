@@ -28,6 +28,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.github_avatar_url = auth.extra.raw_info.avatar_url
       user.first_name = auth.info.nickname
+      # generate random email if email is empty from auth
     end
   end
 
