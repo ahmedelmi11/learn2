@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313161101) do
+ActiveRecord::Schema.define(version: 20180314180458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180313161101) do
     t.string "state", default: "pending"
     t.string "sku"
     t.jsonb "payment"
+    t.datetime "paid_at"
   end
 
   create_table "user_technologies", force: :cascade do |t|

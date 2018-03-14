@@ -12,7 +12,7 @@
          <% else %>
            <%= image_tag "logo.png", class: "avatar" %>
          <% end %>
-         <span>Created <%= (Time.now - @ticket.created_at).to_i / 60 %> minutes ago.</span>
+         <span>Created <span id="min-created-ago"><%= (Time.now - @ticket.created_at).to_i / 60 %></span> minutes ago.</span>
         </div>
         <div class="ticket-description">
           <%= raw render_description(@ticket.description) %>
@@ -45,8 +45,8 @@
 
 
       </div>
-      <% if @ticket.chat_available? %>
-        <div class="right">
+      <div class="right">
+        <% if @ticket.chat_available? %>
           <div class="comments">
 
 
@@ -67,12 +67,22 @@
             <!-- <a id="video-chat">Video Chat</a> -->
             <%= link_to "Video chat", ticket_create_video_chat_path(@ticket), method: :post %>
           <% end %>
-        </div>
-
-      <% end %>
+        <% else %>
+          <p>Payment has been recieved and a teacher will answer your ticket shortly</p>
+          <p>If the ticket has not been answered within 5 minutes you will received a full refund</p>
+          <% if @ticket.paid_at && ((Time.now - @ticket.paid_at).to_i < 301) %>
+            <div>
+              <span id="countdown-minutes"><%= (300 - (Time.now - @ticket.paid_at).to_i) / 60 %></span>
+              :
+              <span id="countdown-seconds"><%= (300 -(Time.now - @ticket.paid_at).to_i) % 60 %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
+<%= javascript_pack_tag 'countdown' %>
 
 
