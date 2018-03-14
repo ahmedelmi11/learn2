@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
       currency:     @ticket.price.currency
     )
 
-    @ticket.update(payment: charge.to_json, state: 'paid')
+    @ticket.update(payment: charge.to_json, state: 'paid', paid_at: Time.new)
     redirect_to ticket_path(@ticket)
 
     rescue Stripe::CardError => e
