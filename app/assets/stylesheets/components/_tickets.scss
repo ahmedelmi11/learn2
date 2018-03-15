@@ -7,3 +7,8 @@
 .inline {
   display: inline-block;
 }
+.flex-ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

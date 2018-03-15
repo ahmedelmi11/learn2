@@ -42,8 +42,12 @@
   padding-left: 30px;
 }
 .right .comments {
-  height: 55vh;
+  height: 45vh;
   overflow: scroll;
+  p {
+    overflow-wrap: break-word;
+    max-width: 300px;
+  }
 }
 
 .ticket-info {

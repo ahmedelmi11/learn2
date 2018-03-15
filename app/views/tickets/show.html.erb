@@ -6,29 +6,36 @@
     </div>
     <div class="ticket-main">
       <div class="left">
-        <div class="ticket-info">
-         <% if @ticket.student.github_avatar_url%>
-           <%= image_tag @ticket.student.github_avatar_url, class: "avatar" %>
-         <% else %>
-           <%= image_tag "logo.png", class: "avatar" %>
-         <% end %>
-         <span>Created <span id="min-created-ago"><%= (Time.now - @ticket.created_at).to_i / 60 %></span> minutes ago.</span>
+
+        <div class="flex-ticket">
+          <div class="ticket-info">
+
+           <% if @ticket.student.github_avatar_url%>
+             <%= image_tag @ticket.student.github_avatar_url, class: "avatar" %>
+           <% else %>
+             <%= image_tag "logo.png", class: "avatar" %>
+           <% end %>
+           <span>Created <span id="min-created-ago"><%= (Time.now - @ticket.created_at).to_i / 60 %></span> minutes ago.</span>
+          </div>
+
+          <% if user_signed_in? %>
+          <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
+            <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
+          <% end %>
+
+          <% if @ticket.teacher == current_user %>
+            <%= link_to "Close this ticket", ticket_mark_ticket_finished_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
+          <% end %>
+          <% end %>
         </div>
+
         <div class="ticket-description">
           <%= raw render_description(@ticket.description) %>
         </div>
 
-        <% if user_signed_in? %>
-        <% if current_user.teacher? &&  @ticket.student != current_user && @ticket.available? %>
-          <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
-        <% end %>
-        <% end %>
 
-         <% if user_signed_in? %>
-        <% if @ticket.teacher == current_user %>
-          <%= link_to "Close this ticket", ticket_mark_ticket_finished_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
-        <% end %>
-        <% end %>
+
+
         <%# if @ticket.student == current_user %>
           <%# link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
         <%# end %>
@@ -76,22 +83,18 @@
             <%= link_to "Video chat", ticket_create_video_chat_path(@ticket), method: :post %>
           <% end %>
         <% else %>
-          <% if current_user.id == @ticket.student_id %>
-            <div class= "card-index-show">
-              <p>Payment has been received and a teacher will answer your ticket shortly</p>
-            </div>
-            <div class= "card-index-show">
-              <p>If the ticket has not been responded to within 5 minutes you will received a full refund</p>
-            </div>
-          <% end %>
-          <% if @ticket.paid_at && ((Time.now - @ticket.paid_at).to_i < 301) %>
-            <div id = "clock" class="clock">
-              <h5 id = "clock-info">Mins: <span id="countdown-minutes"><%= (300 - (Time.now - @ticket.paid_at).to_i) / 60 %></span></h5>
-              <h5 id = "clock-info-2" >Secs: <span id="countdown-seconds"><%= (300 -(Time.now - @ticket.paid_at).to_i) % 60 %></span></h5>
-            </div>
+
+          <% if @ticket.paid_at %>
+            <% if ((Time.now - @ticket.paid_at).to_i < 301) %>
+              <div id = "clock" class="clock">
+                <h5 id = "clock-info">Mins: <span id="countdown-minutes"><%= (300 - (Time.now - @ticket.paid_at).to_i) / 60 %></span></h5>
+                <h5 id = "clock-info-2" >Secs: <span id="countdown-seconds"><%= (300 -(Time.now - @ticket.paid_at).to_i) % 60 %></span></h5>
+              </div>
+            <% else %>
+              <div class="expired">Ticket Expired</div>
+            <% end %>
           <% end %>
         <% end %>
-        <div class="expired">Ticket Expired</div>
       </div>
     </div>
   </div>
