@@ -78,12 +78,15 @@
 
 
 .card-index{
-  background-color:#fff2f2;
+  background-color: rgba(6, 214, 160, 0.2);
   display: flex;
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
   position: relative;
+  padding: 10px;
+  font-family: $body-font;
+  font-weight: lighter;
 }
 
 // .index-header{
