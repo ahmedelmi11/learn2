@@ -9,4 +9,15 @@
   width: 200px;
 }
 
+.expired {
+  background-color: rgba(240, 47, 83, 0.8);
+  width: 150px;
+  border-radius: 4px;
+  color: white;
+  font-family: $body-font;
+  font-weight: lighter;
+  padding: 5px;
+  text-align: center;
+}
+
 

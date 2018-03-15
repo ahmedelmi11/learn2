@@ -69,10 +69,10 @@
           <% end %>
         <% else %>
           <% if current_user.id == @ticket.student_id %>
-            <div class= "card-index-tikshow">
-              <p>Payment has been recieved and a teacher will answer your ticket shortly</p>
+            <div class= "card-index-show">
+              <p>Payment has been received and a teacher will answer your ticket shortly</p>
             </div>
-            <div class= "card-index-tikshow">
+            <div class= "card-index-show">
               <p>If the ticket has not been responded to within 5 minutes you will received a full refund</p>
             </div>
           <% end %>
@@ -83,6 +83,7 @@
             </div>
           <% end %>
         <% end %>
+        <div class="expired">Ticket Expired</div>
       </div>
     </div>
   </div>
