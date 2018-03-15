@@ -17,6 +17,8 @@
 /* Add some shadows to create a card effect */
 .meet-the-team-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+
 }
 
 /* Some left and right padding inside the container */
@@ -27,6 +29,10 @@
 .button-container{
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+  .btn{
+    margin: 0 22px;
+  }
 }
 .marg {
   margin: 20px;
@@ -78,7 +84,7 @@
 
 /* Create three columns of equal width */
 .payment-container{
-  border-style: solid;
+  border: 1px solid #8080807a;
 
 }
 
@@ -90,6 +96,7 @@
   opacity: 0.9;
   background-color: $light-gray;
   margin-bottom: 80px;
+  margin-top: 30px;
 }
 
 .payment-card {
@@ -194,6 +201,7 @@
 
 .start-plan{
   text-align: center;
+  margin-top: 30px;
 }
 
 /* Change the width of the three columns to 100%

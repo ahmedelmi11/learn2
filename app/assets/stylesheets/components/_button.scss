@@ -25,3 +25,12 @@
   text-decoration: none;
   color: white;
 }
+
+.btn-primary {
+  background-color: #52a4bf;
+  border: 1px solid #52a4bf;
+  &:hover{
+  background-color: #78b1c3;
+    border: 1px solid  #78b1c3;
+  }
+}
