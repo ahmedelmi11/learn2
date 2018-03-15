@@ -77,7 +77,7 @@
 }
 
 
-.card-index{
+.card-index-show {
   background-color: rgba(6, 214, 160, 0.2);
   display: flex;
   border-radius: 5px;
@@ -88,6 +88,16 @@
   font-family: $body-font;
   font-weight: lighter;
 }
+
+.card-index {
+  background-color: #FFF2F2;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+
 
 // .index-header{
 //   justify:inline-block;
