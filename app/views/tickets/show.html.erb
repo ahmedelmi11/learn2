@@ -23,6 +23,12 @@
           <%= link_to "Take this ticket", ticket_accept_ticket_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
         <% end %>
         <% end %>
+
+         <% if user_signed_in? %>
+        <% if @ticket.teacher == current_user %>
+          <%= link_to "Close this ticket", ticket_mark_ticket_finished_path(@ticket), class: "btn btn-lg btn-primary", method: :patch  %>
+        <% end %>
+        <% end %>
         <%# if @ticket.student == current_user %>
           <%# link_to "Edit", edit_ticket_path, class: "btn btn-lg btn-primary" %>
         <%# end %>

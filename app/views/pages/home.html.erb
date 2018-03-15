@@ -1,10 +1,8 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
 <div class="banner">
-
   <div class="banner-content text-center">
     <h1>Emergency Aid for Tech Projects</h1>
-
     <p>Coding issues? Get professional help in 5 min.</p>
     <% if !user_signed_in? %>
       <%= link_to "Get Help", new_user_registration_path, class: "btn btn-lg btn-primary", data: {toggle: 'modal', target: '#exampleModal'}  %>
@@ -12,43 +10,47 @@
       <%= link_to "Get Help", new_ticket_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
-
 </div>
 
 <div class="container">
-<div class="button-container">
-  <p>
-    <div class="marg">
-      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <div class="button-container">
+    <p>
+      <div class="marg">
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         About Learn2
-      </a>
-    </div>
-  </p>
-  <p>
+        </a>
+      </div>
+    </p>
+
+   <p>
     <div class="marg">
       <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-        How it works
+      How it works
       </a>
     </div>
-  </p>
-</div>
-<div class="jc-center">
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      <p>Learn2 is a platform for coding novices AND experts to get help in 5 minutes on various programming languages.</p>
-      <p> Best of both world: Tech guides are able to teach and earn but also seek help themselves from peers for their technical issues.</p>
-      <p> Tech novices are offered unparalled flexible access to high quality tech experts in the field of their choice.</p>
+    </p>
+  </div>
+
+  <div class="jc-center">
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <p>Learn2 is a platform for coding novices AND experts to get help in 5 minutes on various programming languages.</p>
+        <p> Best of both world: Tech guides are able to teach and earn but also seek help themselves from peers for their technical issues.</p>
+        <p> Tech novices are offered unparalled flexible access to high quality tech experts in the field of their choice.</p>
+      </div>
+    </div>
+
+    <div class="collapse" id="collapseExample2">
+      <div class="card card-body">
+        <p>1. Sign up and describre what you are stuck on.</p>
+        <p>2. Pay a small fee and get started with an expert in 5 min.</p>
+        <p>3. Follow-up for further feedback if you need it.
+      </div>
     </div>
   </div>
-  <div class="collapse" id="collapseExample2">
-    <div class="card card-body">
-      <p>1. Sign up and describre what you are stuck on.</p>
-      <p>2. Pay a small fee and get started with an expert in 5 min.</p>
-      <p>3. Follow-up for further feedback if you need it.
-    </div>
-  </div>
-</div>
+
 <hr>
+
 <h1 class= "text-center"> Meet the team</h1>
   <div class="row">
 
@@ -58,7 +60,9 @@
       <div class="container">
         <h2>William Bland</h2>
         <p class="title">Junior Fullstack Dev &amp; Founder</p>
-        <p><button class="button">Contact</button></p>
+       <a href="https://github.com/wlbland" target="_blank">
+          <p><button class="button">Contact</button></p>
+        </a>
       </div>
     </div>
   </div>
@@ -69,7 +73,9 @@
       <div class="container">
         <h2>Ahmed Elmi</h2>
         <p class="title"> Junior Fullstack Dev &amp; Co-Founder</p>
-        <p><button class="button">Contact</button></p>
+        <a href="https://github.com/ahmedelmi11" target="_blank">
+          <p><button class="button">Contact</button></p>
+        </a>
       </div>
     </div>
   </div>
@@ -80,7 +86,9 @@
       <div class="container">
         <h2>David O'Neill</h2>
         <p class="title">Junior Fullstack Dev &amp; Co-Founder</p>
-        <p><button class="button">Contact</button></p>
+        <a href="https://github.com/daveyboy67" target="_blank">
+          <p><button class="button">Contact</button></p>
+        </a>
       </div>
     </div>
   </div>
@@ -89,60 +97,56 @@
 
 
 
-<div class="row">
-  <h2 class="start-plan">Payment Plan</h2>
+  <div class="row">
+    <h2 class="start-plan">Payment Plan</h2>
+    <div class="payment-container">
 
-  <div class="payment-container">
-    <div class="col-xs-12 col-sm-4 payment-card-container">
-      <div class="payment-card basic">
-       <div class="payment-card-wrapper">
-        <h3> Basic Plan</h3>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>
-          <p> Pay as you go, feedback till problem resolved and the option to become a tech guide </p>
-          <h5> £10 per ticket/user</h5>
-          <div class="top-marg">
-            <a href="#" class="payment-button">Join us</a>
+      <div class="col-xs-12 col-sm-4 payment-card-container">
+        <div class="payment-card basic">
+          <div class="payment-card-wrapper">
+            <h3> Basic Plan</h3>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>
+            <p> Pay as you go, feedback till problem resolved and the option to become a tech guide </p>
+            <h5> £10 per ticket/user</h5>
+            <div class="top-marg">
+              <a href="#" class="payment-button">Join us</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-xs-12 col-sm-4 payment-card-container">
-      <div class="payment-card advanced">
-        <div class="payment-card-wrapper">
-        <h3>Advanced Plan</h3>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>
-          <p> Get 5 tickets, feedback till problem resolved and the option to become a tech guide </p>
-          <h5> £20 mo/user</h5>
-          <div class="top-marg">
-            <a href="#" class="payment-button">Buy now</a>
+      <div class="col-xs-12 col-sm-4 payment-card-container">
+        <div class="payment-card advanced">
+          <div class="payment-card-wrapper">
+            <h3>Advanced Plan</h3>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>
+            <p> Get 5 tickets, feedback till problem resolved and the option to become a tech guide </p>
+            <h5> £20 mo/user</h5>
+            <div class="top-marg">
+              <a href="#" class="payment-button">Buy now</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-xs-12 col-sm-4 payment-card-container">
-      <div class="payment-card premium">
-        <div class="payment-card-wrapper">
-        <h3>Premium Plan</h3>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>
-        <%= image_tag "ticket.png", class: 'ticket-icon' %>        <p> Get 15 tickets, feedback till problem resolved and the option to become a tech guide </p>
-          <h5> £50 mo /  user </h5>
-          <div class="top-marg">
-            <a href="#" class="payment-button">Contact Sales</a>
+      <div class="col-xs-12 col-sm-4 payment-card-container">
+        <div class="payment-card premium">
+          <div class="payment-card-wrapper">
+            <h3>Premium Plan</h3>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>
+            <%= image_tag "ticket.png", class: 'ticket-icon' %>    <p> Get 15 tickets, feedback till problem resolved and the option to become a tech guide </p>
+            <h5> £50 mo /  user </h5>
+            <div class="top-marg">
+              <a href="#" class="payment-button">Contact Sales</a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-  </div>
-</div>
-
-
-
-</div>
 
 <%= render 'shared/modal' %>
 
