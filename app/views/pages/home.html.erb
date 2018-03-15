@@ -2,12 +2,12 @@
 
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>Emergency Aid for Tech Projects</h1>
+    <h1>Emergency help for programmers</h1>
     <p>Coding issues? Get professional help in 5 min.</p>
     <% if !user_signed_in? %>
-      <%= link_to "Get Help", new_user_session_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Request Help", new_user_session_path, class: "btn btn-lg btn-primary" %>
     <% else %>
-      <%= link_to "Get Help", new_ticket_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Request Help", new_ticket_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>

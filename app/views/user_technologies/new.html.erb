@@ -1,7 +1,7 @@
 <div class="container min-height">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <h1>Add a technology </h1>
+      <h1> What do you know? </h1>
         <%= simple_form_for([@user, @user_technology]) do |f| %>
 
           <div class="form-group check_boxes required user_user_technologies_technology_id">
@@ -17,7 +17,7 @@
               </div>
             </div>
 
-          <%= f.submit class: "btn btn-primary" %>
+          <%= f.submit value: 'Add your expert languages', class: "btn btn-primary" %>
         <% end %>
     </div>
   </div>
