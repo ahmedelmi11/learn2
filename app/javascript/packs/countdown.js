@@ -14,6 +14,7 @@ const countdown = () => {
     if (timeInSeconds <= 0) {
       document.getElementById('countdown-minutes').innerText = "Ticket"
       document.getElementById('countdown-seconds').innerText = "Expired"
+      document.getElementById('clock').style = "background-color: red;"
     } else {
       if (secondsCounter > 0) {
         document.getElementById('countdown-seconds').innerText = secondsCounter - 1
