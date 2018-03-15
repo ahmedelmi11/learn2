@@ -58,8 +58,10 @@
 
           <% @comments.each do |c| %>
             <div class="message-ticket <%= "text-right" if current_user == c.user %>">
-              <% if @ticket.student.github_avatar_url%>
-                <%= image_tag current_user.github_avatar_url, class: "avatar" %>
+              <% if @ticket.student.github_avatar_url && c.user == @ticket.student %>
+                <%= image_tag @ticket.student.github_avatar_url, class: "avatar" %>
+              <% elsif @ticket.teacher.github_avatar_url && c.user == @ticket.teacher %>
+                <%= image_tag @ticket.teacher.github_avatar_url, class: "avatar" %>
               <% else %>
                 <%= image_tag "logo.png", class: "avatar" %>
               <% end %>
