@@ -12,9 +12,8 @@ const countdown = () => {
   setInterval(() => {
     const timeInSeconds = (minutesCounter * 60) + secondsCounter
     if (timeInSeconds <= 0) {
-      document.getElementById('countdown-minutes').innerText = "Ticket"
-      document.getElementById('countdown-seconds').innerText = "Expired"
-      document.getElementById('clock').style = "background-color: red;"
+      document.getElementById('clock').style.display = "none"
+      document.getElementById('expired').style.display = "block"
     } else {
       if (secondsCounter > 0) {
         document.getElementById('countdown-seconds').innerText = secondsCounter - 1
