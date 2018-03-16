@@ -17,12 +17,16 @@
   color: white;
 }
 
-.ticket-header.taken {
-  background-color: #FFD166;
+.ticket-header.pending {
+  background-color: $orange;
 }
 
-.ticket-header.available {
- background-color: #06D6A0;
+.ticket-header.active {
+  background-color: $blue;
+}
+
+.ticket-header.finished {
+  background-color: $green;
 }
 
 .ticket-main {

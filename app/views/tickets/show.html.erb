@@ -1,6 +1,6 @@
 <div class="container">
   <div class="show-ticket">
-    <div class="ticket-header <%= @ticket.taken? ? "taken" : "available" %>">
+    <div class="ticket-header <%= @ticket.status %>">
       <span><%= @ticket.title %></span>
       <span><%= @ticket.status %></span>
     </div>
