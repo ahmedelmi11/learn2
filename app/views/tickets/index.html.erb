@@ -1,6 +1,7 @@
 <div class= "container">
   <div class="row">
   <% @tickets.each do |ticket| %>
+  <% unless ticket.solved? || ticket.active? %>
     <div class="col-xs-12 col-md-6">
       <div class="card">
         <div class="card-user" style="background-image: url(<%= ticket.student.github_avatar_url %>)"></div>
@@ -27,6 +28,7 @@
         <%= link_to "", ticket_path(ticket), class: "card-link"  %>
       </div>
     </div>
+  <% end %>
     <% end %>
   </div>
 </div>
