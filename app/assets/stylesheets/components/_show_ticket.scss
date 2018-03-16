@@ -18,15 +18,15 @@
 }
 
 .ticket-header.pending {
-  background-color: $orange;
+  background-color: $green;
 }
 
 .ticket-header.active {
-  background-color: $blue;
+  background-color: $orange;
 }
 
 .ticket-header.finished {
-  background-color: $green;
+  background-color: $blue;
 }
 
 .ticket-main {

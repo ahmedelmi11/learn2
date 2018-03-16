@@ -3,7 +3,7 @@
   display: flex;
   border-radius: 5px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -35,15 +35,15 @@
 }
 
 .card-header.pending {
-  background-color: $orange;
+  background-color: $green;
 }
 
 .card-header.active {
-  background-color: $blue;
+  background-color: $orange;
 }
 
 .card-header.finished {
-  background-color: $green;
+  background-color: $blue;
 }
 
 .card-content {
