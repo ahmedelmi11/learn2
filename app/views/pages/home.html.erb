@@ -2,8 +2,8 @@
 
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>Emergency help for programmers</h1>
-    <p>Coding issues? Get professional help in 5 min.</p>
+    <h1>Emergency aid for tech projects</h1>
+    <p>Coding issues? Get a personal solution within <strong>5 mins</strong>.</p>
     <% if !user_signed_in? %>
       <%= link_to "Request Help", new_user_session_path, class: "btn btn-lg btn-primary" %>
     <% else %>
@@ -42,8 +42,9 @@
 
     <div class="collapse" id="collapseExample2">
       <div class="card card-body">
-        <p>1. Sign up and describre what you are stuck on.</p>
-        <p>2. Pay a small fee and get started with an expert in 5 min.</p>
+        <p>A solution within 5 minutes or your money back!</p>
+        <p>1. Sign up and describe what you are stuck on.</p>
+        <p>2. Pay a small fee and get started with an expert within 5 min.</p>
         <p>3. Follow-up for further feedback if you need it.
       </div>
     </div>
@@ -95,8 +96,6 @@
 
 </div>
 
-
-
   <div class="row">
     <h2 class="start-plan">Payment Plan</h2>
     <div class="payment-container">
@@ -109,7 +108,7 @@
             <p> Pay as you go, feedback till problem resolved and the option to become a tech guide </p>
             <h5> £10 per ticket/user</h5>
             <div class="top-marg">
-              <a href="#" class="payment-button">Join us</a>
+              <%= link_to "Get Help", new_user_session_path, class: "payment-button" %>
             </div>
           </div>
         </div>
