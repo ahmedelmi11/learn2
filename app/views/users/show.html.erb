@@ -49,12 +49,6 @@
           <% @user.tickets_as_student.each do |ticket| %>
             <%= link_to ticket_path(ticket) do  %>
             <div class="product">
-              <div class='product-upvote'>
-                <div class="product-arrow"></div>
-                <div class='product-count'>
-                  <ol><%=Ticket.count%></ol>
-                </div>
-              </div>
 
               <% if ticket.pending? %>
                 <img src="http://topmops.net/wp-content/uploads/2017/01/avatar-placeholder-generic.jpg" alt="kudoz" class="product-image hidden-xs">
@@ -82,12 +76,7 @@
         <% @user.tickets_as_teacher.each do |ticket| %>
           <%= link_to ticket_path(ticket) do %>
           <div class="product">
-            <div class='product-upvote'>
-              <div class="product-arrow"></div>
-              <div class='product-count'>
-                <%= Ticket.count %>
-              </div>
-            </div>
+
             <img src="<%= ticket.student.github_avatar_url %>" alt="kudoz" class="product-image hidden-xs">
             <div class='product-body'>
               <h3><%= ticket.title %></h3>
