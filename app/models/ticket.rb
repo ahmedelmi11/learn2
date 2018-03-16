@@ -13,6 +13,14 @@ class Ticket < ApplicationRecord
     self.teacher_id.nil?
   end
 
+  def solved?
+    status == 'finished'
+  end
+
+  def active?
+    status == 'active'
+  end
+
   def taken?
     !available?
   end
